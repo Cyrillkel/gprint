@@ -16,11 +16,25 @@ export default function HeaderMenu() {
         <NavigationMenuItem>
           <Link href="/" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Главная
+              Продукция
+            </NavigationMenuLink>
+          </Link>
+          <Link href="/" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              О нас
+            </NavigationMenuLink>
+          </Link>
+          <Link href="/" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              Отзывы
+            </NavigationMenuLink>
+          </Link>
+          <Link href="/" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              Контакты
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
-        {/* Добавьте другие пункты меню здесь */}
       </NavigationMenuList>
     </NavigationMenu>
   );
