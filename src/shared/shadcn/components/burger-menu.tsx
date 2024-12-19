@@ -7,18 +7,16 @@ import {
   SheetTrigger,
 } from "@/shared/shadcn/ui/sheet";
 
-export default function Menu() {
+import HeaderMenu from "@/shared/components/menu-nav";
+
+export default function BurgerMenu() {
   return (
     <Sheet>
       <SheetTrigger>Open</SheetTrigger>
       <SheetContent>
-        <SheetHeader>
-          <SheetTitle>Are you absolutely sure?</SheetTitle>
-          <SheetDescription>
-            This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
-          </SheetDescription>
-        </SheetHeader>
+        <div className="flex flex-col bg-red-700">
+          <HeaderMenu />
+        </div>
       </SheetContent>
     </Sheet>
   );

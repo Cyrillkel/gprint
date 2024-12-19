@@ -9,9 +9,13 @@ import {
   navigationMenuTriggerStyle,
 } from "@/shared/shadcn/components/navigation-menu";
 
-export default function HeaderMenu() {
+interface HeaderMenuProps {
+  isMobile?: boolean;
+}
+
+export default function HeaderMenu({ isMobile = false }: HeaderMenuProps) {
   return (
-    <NavigationMenu>
+    <NavigationMenu className={isMobile ? "flex flex-col" : ""}>
       <NavigationMenuList>
         <NavigationMenuItem>
           <Link href="/" legacyBehavior passHref>
