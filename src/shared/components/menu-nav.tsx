@@ -12,9 +12,6 @@ import {
 interface HeaderMenuProps {
   isMobile?: boolean;
   className?: string;
-  // styles?: {
-  //   classNameForList?: string;
-  // };
 }
 
 export default function HeaderMenu({
@@ -41,7 +38,9 @@ HeaderMenuProps) {
   ];
   return (
     <NavigationMenu>
-      <NavigationMenuList className={isMobile ? "flex flex-col" : ""}>
+      <NavigationMenuList
+        className={isMobile ? "flex flex-col gap-y-4" : "gap-x-4"}
+      >
         {links.map((item, index) => (
           <NavigationMenuItem key={index}>
             <NavigationMenuLink
