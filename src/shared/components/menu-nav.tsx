@@ -11,34 +11,49 @@ import {
 
 interface HeaderMenuProps {
   isMobile?: boolean;
+  className?: string;
+  // styles?: {
+  //   classNameForList?: string;
+  // };
 }
 
-export default function HeaderMenu({ isMobile = false }: HeaderMenuProps) {
+export default function HeaderMenu({
+  isMobile = false,
+}: // styles,
+HeaderMenuProps) {
+  const links = [
+    {
+      label: "Продукция",
+      href: "/",
+    },
+    {
+      label: "О нас",
+      href: "/",
+    },
+    {
+      label: "Отзывы",
+      href: "/",
+    },
+    {
+      label: "Контакты",
+      href: "/",
+    },
+  ];
   return (
-    <NavigationMenu className={isMobile ? "flex flex-col" : ""}>
-      <NavigationMenuList>
-        <NavigationMenuItem>
-          <Link href="/" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Продукция
+    <NavigationMenu>
+      <NavigationMenuList className={isMobile ? "flex flex-col" : ""}>
+        {links.map((item, index) => (
+          <NavigationMenuItem key={index}>
+            <NavigationMenuLink
+              asChild
+              className={navigationMenuTriggerStyle()}
+            >
+              <Link href={item.href} legacyBehavior passHref>
+                {item.label}
+              </Link>
             </NavigationMenuLink>
-          </Link>
-          <Link href="/" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              О нас
-            </NavigationMenuLink>
-          </Link>
-          <Link href="/" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Отзывы
-            </NavigationMenuLink>
-          </Link>
-          <Link href="/" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Контакты
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
+          </NavigationMenuItem>
+        ))}
       </NavigationMenuList>
     </NavigationMenu>
   );

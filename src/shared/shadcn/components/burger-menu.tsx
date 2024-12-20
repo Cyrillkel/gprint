@@ -14,8 +14,13 @@ export default function BurgerMenu() {
     <Sheet>
       <SheetTrigger>Open</SheetTrigger>
       <SheetContent>
-        <div className="flex flex-col bg-red-700">
-          <HeaderMenu />
+        <div className="flex flex-col">
+          <HeaderMenu
+            isMobile
+            // styles={{
+            //   classNameForList: "flex flex-col",
+            // }}
+          />
         </div>
       </SheetContent>
     </Sheet>
