@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import {
   NavigationMenu,
@@ -16,44 +17,58 @@ interface HeaderMenuProps {
 
 export default function HeaderMenu({
   isMobile = false,
-}: // styles,
-HeaderMenuProps) {
+  className = "",
+}: HeaderMenuProps) {
+  const [phoneClicked, setPhoneClicked] = useState(false);
+
   const links = [
-    {
-      label: "Продукция",
-      href: "/",
-    },
-    {
-      label: "О нас",
-      href: "/",
-    },
-    {
-      label: "Отзывы",
-      href: "/",
-    },
-    {
-      label: "Контакты",
-      href: "/",
-    },
+    { label: "Продукция", href: "/" },
+    { label: "О нас", href: "/about" },
+    { label: "Отзывы", href: "/reviews" },
+    { label: "Контакты", href: "/contacts" },
+    { label: "+7 999-219-35-01", href: "tel:+79992193501", isPhone: true },
   ];
+
+  const handlePhoneClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    setPhoneClicked(true);
+    window.location.href = "tel:+79992193501";
+  };
+
   return (
-    <NavigationMenu>
-      <NavigationMenuList
-        className={isMobile ? "flex flex-col gap-y-4" : "gap-x-4"}
-      >
-        {links.map((item, index) => (
-          <NavigationMenuItem key={index}>
-            <NavigationMenuLink
-              asChild
-              className={navigationMenuTriggerStyle()}
-            >
-              <Link href={item.href} legacyBehavior passHref>
-                {item.label}
-              </Link>
-            </NavigationMenuLink>
-          </NavigationMenuItem>
-        ))}
-      </NavigationMenuList>
-    </NavigationMenu>
+    <nav className={`${className} ${isMobile ? "mobile" : "desktop"}`}>
+      <NavigationMenu>
+        <NavigationMenuList
+          className={
+            isMobile
+              ? "flex flex-col gap-y-4 items-start"
+              : "flex gap-x-4 items-center"
+          }
+        >
+          {links.map((item, index) => (
+            <NavigationMenuItem key={index}>
+              {item.isPhone ? (
+                <a
+                  href={item.href}
+                  className={navigationMenuTriggerStyle()}
+                  onClick={handlePhoneClick}
+                  aria-label="Call us"
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <Link
+                  href={item.href}
+                  className={navigationMenuTriggerStyle()}
+                  aria-current={item.href === "/" ? "page" : undefined}
+                >
+                  {item.label}
+                </Link>
+              )}
+            </NavigationMenuItem>
+          ))}
+        </NavigationMenuList>
+      </NavigationMenu>
+    </nav>
   );
 }
