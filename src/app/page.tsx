@@ -1,6 +1,7 @@
 import HeroSection from "@/shared/components/hero";
 import Button from "@/shared/components/button";
 import { AutoCarousel } from "@/shared/components/hero-carousel";
+import OurClients from "@/shared/components/our-clients";
 
 export default function Home() {
   return (
@@ -13,11 +14,11 @@ export default function Home() {
                 Голографические наклейки: блеск и оригинальность в одном
                 продукте
               </h1>
-              <p className="text-xl">
+              <p className="text-xl sm:text-base md:text-lg lg:text-xl pr-20 mb-4">
                 Высокое качество, доступные цены и уникальный дизайн — всё, что
                 нужно для вашего творчества.
               </p>
-              <div>
+              <div className="text-xl px-8 py-3 bg-teal-50 hover:bg-indigo-50 hover:animate-pulse cursor-pointer rounded-xl">
                 <Button>Заказать</Button>
               </div>
             </div>
@@ -26,6 +27,8 @@ export default function Home() {
             </div>
           </div>
         </HeroSection>
+
+        <OurClients />
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center"></footer>
     </div>
