@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import {
   NavigationMenu,
@@ -19,8 +18,6 @@ export default function HeaderMenu({
   isMobile = false,
   className = "",
 }: HeaderMenuProps) {
-  const [phoneClicked, setPhoneClicked] = useState(false);
-
   const links = [
     { label: "Продукция", href: "/" },
     { label: "О нас", href: "/about" },
@@ -28,12 +25,6 @@ export default function HeaderMenu({
     { label: "Контакты", href: "/contacts" },
     { label: "+7 999-219-35-01", href: "tel:+79992193501", isPhone: true },
   ];
-
-  const handlePhoneClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    setPhoneClicked(true);
-    window.location.href = "tel:+79992193501";
-  };
 
   return (
     <nav className={`${className} ${isMobile ? "mobile" : "desktop"}`}>
@@ -51,7 +42,6 @@ export default function HeaderMenu({
                 <a
                   href={item.href}
                   className={navigationMenuTriggerStyle()}
-                  onClick={handlePhoneClick}
                   aria-label="Call us"
                 >
                   {item.label}

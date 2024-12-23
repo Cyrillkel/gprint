@@ -12,7 +12,7 @@ interface props {
 const Header: React.FC<props> = ({ className }) => {
   return (
     <header className={cn("w-full border-b-2", className)}>
-      <div className="container flex justify-between items-center m-auto max-h-20">
+      <div className="container flex justify-between items-center m-auto max-h-20 py-3">
         <Logo />
         <div className="hidden md:block">
           <HeaderMenu />
