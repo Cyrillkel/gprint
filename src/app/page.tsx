@@ -1,10 +1,18 @@
+// "use client";
 import HeroSection from "@/shared/components/hero";
 import Button from "@/shared/components/button";
 import { AutoCarousel } from "@/shared/components/hero-carousel";
 import OurClients from "@/shared/components/our-clients";
+import QueryProvider from "@/shared/components/tanstack-query";
+
+// import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+// import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+
+// const queryClient = new QueryClient();
 
 export default function Home() {
   return (
+    // <QueryClientProvider client={queryClient}>
     <div>
       <main className="">
         <HeroSection>
@@ -29,8 +37,11 @@ export default function Home() {
         </HeroSection>
 
         <OurClients />
+        <QueryProvider />
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center"></footer>
     </div>
+    //   <ReactQueryDevtools initialIsOpen={false} />
+    // </QueryClientProvider>
   );
 }

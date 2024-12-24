@@ -18,23 +18,23 @@ interface ImageProps {
 
 const ImageSlides: ImageProps[] = [
   {
-    src: "/1.png",
+    src: "/sticker.png",
     alt: "image-1",
   },
   {
-    src: "/1.png",
+    src: "/sticker.png",
     alt: "image-2",
   },
   {
-    src: "/1.png",
+    src: "/sticker.png",
     alt: "image-3",
   },
   {
-    src: "/1.png",
+    src: "/sticker.png",
     alt: "image-4",
   },
   {
-    src: "/1.png",
+    src: "/sticker.png",
     alt: "image-5",
   },
 ];
@@ -73,9 +73,9 @@ export function AutoCarousel() {
         {ImageSlides.map((slides, index) => (
           <CarouselItem
             key={index}
-            className="pl-1 basis-full transition-opacity duration-1000 ease-in-out data-[active]:opacity-100 data-[inactive]:opacity-100"
+            className="sm:basis-1/2 md:basis-1/3 lg:basis-1/3"
           >
-            <div className="p-1">
+            <div className="p-0">
               <Card>
                 <CardContent className="flex aspect-square items-center justify-center relative ">
                   <Image
