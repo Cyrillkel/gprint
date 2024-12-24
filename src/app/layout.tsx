@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Azeret_Mono as Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/shared/components/layout/header";
+import { QueryClientProviderWrapper } from "@/shared/context/app-context";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,8 +30,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Header />
-        {children}
+        <QueryClientProviderWrapper>
+          <Header />
+          {children}
+          <ReactQueryDevtools initialIsOpen={false} />
+        </QueryClientProviderWrapper>
       </body>
     </html>
   );

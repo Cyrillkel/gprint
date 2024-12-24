@@ -32,7 +32,7 @@ const images: ClientsProps[] = [
 
 const OurClients = () => {
   return (
-    <div className="w-full bg-green-700 py-4 opacity-35">
+    <section className="w-full bg-green-700 py-4 opacity-35">
       <h2 className="text-2xl text-center text-white font-medium">
         Наши клиеты
       </h2>
@@ -47,7 +47,7 @@ const OurClients = () => {
           />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
