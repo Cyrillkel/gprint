@@ -4,9 +4,11 @@ import {
   QueryClient,
   QueryClientProvider,
 } from "@tanstack/react-query";
-import { useState } from "react";
+import { usePosts } from "./hooks/usePost";
 
 const queryClient = new QueryClient();
+
+const isAuth = true;
 
 interface Post {
   userId: number;
@@ -15,22 +17,18 @@ interface Post {
   body: string;
 }
 
-const getData = async (): Promise<Post[]> => {
-  const response = await fetch("https://jsonplaceholder.typicode.com/posts");
-  if (!response.ok) {
-    throw new Error("Failed to fetch posts");
-  }
-  return response.json();
-};
-
 export default function QueryProvider() {
-  const [search, setSearch] = useState("");
-  const [selectedUser, setSelectedUser] = useState("");
-
-  const { data, error, isLoading } = useQuery<Post[]>({
-    queryKey: ["posts"],
-    queryFn: getData,
-  });
+  const {
+    data,
+    isLoading,
+    isSuccess,
+    isError,
+    error,
+    search,
+    setSearch,
+    selectedUser,
+    setSelectedUser,
+  } = usePosts(isAuth);
 
   const filteredPosts = data
     ?.filter(

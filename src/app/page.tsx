@@ -16,13 +16,13 @@ export default function Home() {
     <div>
       <main className="">
         <HeroSection>
-          <div className="flex gap-4 container flex-col  items-center sm:flex-row justify-center min-h-screen ">
-            <div className="flex flex-col items-start lg:w-1/2">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+          <div className="flex gap-4 container flex-col items-center sm:flex-row justify-center min-h-screen ">
+            <div className="flex flex-col items-center lg:w-1/2 sm:items-start">
+              <h1 className="text-center sm:text-start text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
                 Голографические наклейки: блеск и оригинальность в одном
                 продукте
               </h1>
-              <p className="text-xl sm:text-base md:text-lg lg:text-xl pr-20 mb-4">
+              <p className="text-xl text-center sm:text-start sm:text-base md:text-lg lg:text-xl sm:pr-20 mb-4">
                 Высокое качество, доступные цены и уникальный дизайн — всё, что
                 нужно для вашего творчества.
               </p>
