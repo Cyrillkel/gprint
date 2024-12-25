@@ -23,7 +23,7 @@ const getData = async (): Promise<Post[]> => {
   return response.json();
 };
 
-function PostList() {
+export default function QueryProvider() {
   const [search, setSearch] = useState("");
   const [selectedUser, setSelectedUser] = useState("");
 
@@ -89,13 +89,14 @@ function PostList() {
   );
 }
 
-export default function QueryProvider() {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <PostList />
-    </QueryClientProvider>
-  );
-}
+// export default function QueryProvider() {
+//   return (
+//     <QueryClientProvider client={queryClient}>
+//       <PostList />
+//     </QueryClientProvider>
+//   );
+// }
+
 // interface Post {
 //   userId: number;
 //   id: number;
