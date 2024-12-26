@@ -15,7 +15,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ children }) => {
       <div className="w-full">
         <Image
           className="absolute inset-0 object-cover w-full h-full opacity-70"
-          src="/hero-bg.jpg"
+          src="/hero-bg.png"
           alt="background"
           width={1920}
           height={1080}

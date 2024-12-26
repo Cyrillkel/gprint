@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
+import { QUERY_KEYS } from "@/shared/constants/queryKeys";
 
 interface Post {
   userId: number;
@@ -22,7 +23,7 @@ export function usePosts(isEnabled: boolean) {
   const [selectedUser, setSelectedUser] = useState("");
 
   const { data, isLoading, isSuccess, isError, error } = useQuery<Post[]>({
-    queryKey: ["posts"],
+    queryKey: [QUERY_KEYS.POSTS],
     queryFn: getData,
     enabled: isEnabled,
   });

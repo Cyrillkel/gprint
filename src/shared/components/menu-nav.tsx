@@ -9,6 +9,8 @@ import {
   navigationMenuTriggerStyle,
 } from "@/shared/shadcn/components/navigation-menu";
 
+import { cn } from "../utils/utils";
+
 interface HeaderMenuProps {
   isMobile?: boolean;
   className?: string;
@@ -26,22 +28,26 @@ export default function HeaderMenu({
     { label: "+7 999-219-35-01", href: "tel:+79992193501", isPhone: true },
   ];
 
+  const customLinkStyle = cn(
+    navigationMenuTriggerStyle(),
+    "bg-transparent hover:bg-transparent focus:bg-transparent active:bg-transparent"
+  );
+
   return (
-    <nav className={`${className} ${isMobile ? "mobile" : "desktop"}`}>
+    <nav className={cn(className, isMobile ? "mobile" : "desktop")}>
       <NavigationMenu>
         <NavigationMenuList
-          className={
-            isMobile
-              ? "flex flex-col gap-y-4 items-start"
-              : "flex gap-x-4 items-center"
-          }
+          className={cn(
+            "flex",
+            isMobile ? "flex-col gap-y-4 items-start" : "gap-x-4 items-center"
+          )}
         >
           {links.map((item, index) => (
             <NavigationMenuItem key={index}>
               {item.isPhone ? (
                 <a
                   href={item.href}
-                  className={navigationMenuTriggerStyle()}
+                  className={customLinkStyle}
                   aria-label="Call us"
                 >
                   {item.label}
@@ -49,7 +55,7 @@ export default function HeaderMenu({
               ) : (
                 <Link
                   href={item.href}
-                  className={navigationMenuTriggerStyle()}
+                  className={customLinkStyle}
                   aria-current={item.href === "/" ? "page" : undefined}
                 >
                   {item.label}

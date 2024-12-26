@@ -17,7 +17,7 @@ interface Post {
   body: string;
 }
 
-export default function QueryProvider() {
+export default function FilteredPostList() {
   const {
     data,
     isLoading,

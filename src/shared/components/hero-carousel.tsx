@@ -74,7 +74,7 @@ export function AutoCarousel() {
           <CarouselItem key={index} className="basis-1/3 lg:basis-1/3">
             <div className="p-0">
               <Card>
-                <CardContent className="flex aspect-square items-center justify-center relative ">
+                <CardContent className="flex aspect-square items-center justify-center relative">
                   <Image
                     src={slides.src}
                     alt={slides.alt}
