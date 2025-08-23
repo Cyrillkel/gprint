@@ -1,14 +1,18 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, ButtonHTMLAttributes } from "react";
 
-interface ButtonProps {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children?: ReactNode;
 }
 
-const Button: React.FC<ButtonProps> = ({ children }) => {
+const Button: React.FC<ButtonProps> = ({
+  children,
+  className = "",
+  ...props
+}) => {
   return (
-    <div className="flex">
-      <button>{children}</button>
-    </div>
+    <button className={`holo-button ${className}`} {...props}>
+      {children}
+    </button>
   );
 };
 

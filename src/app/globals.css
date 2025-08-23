@@ -2,8 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+  color: #ffffff;
 }
 
 @layer base {
@@ -33,7 +39,16 @@ body {
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
+
+    /* Holographic color palette */
+    --holo-primary: 180 100% 50%;
+    --holo-secondary: 300 100% 50%;
+    --holo-accent: 60 100% 50%;
+    --holo-success: 120 100% 50%;
+    --holo-warning: 30 100% 50%;
+    --holo-danger: 0 100% 50%;
   }
+
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
@@ -71,13 +86,894 @@ body {
   }
 }
 
-/* Add these styles to your global CSS file */
+/* Modern Holographic Design System */
 @layer utilities {
+  /* Enhanced scrollbar */
   .scrollbar-hide {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
   .scrollbar-hide::-webkit-scrollbar {
-    display: none; /* Chrome, Safari and Opera */
+    display: none;
   }
+
+  /* Primary holographic text - unique effect */
+  .holo-text-primary {
+    background: linear-gradient(
+      45deg,
+      #00ffff 0%,
+      #ff00ff 20%,
+      #ffff00 40%,
+      #00ff00 60%,
+      #0080ff 80%,
+      #ff0080 100%
+    );
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: holo-shift 8s ease-in-out infinite;
+    font-weight: 700;
+    text-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+  }
+
+  .holo-text-secondary {
+    background: linear-gradient(
+      135deg,
+      #ff0080 0%,
+      #8000ff 25%,
+      #0080ff 50%,
+      #00ff80 75%,
+      #ff8000 100%
+    );
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: holo-shift 6s ease-in-out infinite reverse;
+  }
+
+  @keyframes holo-shift {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  /* Glass Morphism Cards */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .glass-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 255, 255, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border-color: rgba(0, 255, 255, 0.3);
+  }
+
+  /* Holographic Border Effects */
+  .holo-border {
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(255, 0, 128, 0.3), 0 0 40px rgba(128, 0, 255, 0.2);
+  }
+
+  .holo-border::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(
+      45deg,
+      #ff0080,
+      #8000ff,
+      #0080ff,
+      #00ff80,
+      #80ff00,
+      #ff8000,
+      #ff0080
+    );
+    background-size: 200% 200%;
+    border-radius: inherit;
+    z-index: -1;
+    animation: holo-border-shift 12s ease-in-out infinite;
+    opacity: 0.7;
+    filter: brightness(1.15) contrast(1.1);
+    box-shadow: inset 0 0 15px rgba(0, 255, 255, 0.2),
+      inset 0 0 30px rgba(255, 0, 255, 0.15),
+      inset 0 0 45px rgba(255, 255, 0, 0.1);
+  }
+
+  @keyframes holo-border-shift {
+    0% {
+      background-position: 0% 0%;
+      opacity: 0.7;
+    }
+    16.66% {
+      background-position: 33% 0%;
+      opacity: 0.8;
+    }
+    33.33% {
+      background-position: 66% 0%;
+      opacity: 0.9;
+    }
+    50% {
+      background-position: 100% 0%;
+      opacity: 0.8;
+    }
+    66.66% {
+      background-position: 66% 100%;
+      opacity: 0.7;
+    }
+    83.33% {
+      background-position: 33% 100%;
+      opacity: 0.6;
+    }
+    100% {
+      background-position: 0% 0%;
+      opacity: 0.7;
+    }
+  }
+
+  /* Floating Holographic Orbs */
+  .holo-orb {
+    position: relative;
+    background: radial-gradient(
+      circle at 30% 30%,
+      rgba(0, 255, 255, 0.3) 0%,
+      rgba(255, 0, 255, 0.2) 30%,
+      rgba(255, 255, 0, 0.2) 60%,
+      transparent 100%
+    );
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(255, 0, 255, 0.3),
+      inset 0 0 20px rgba(255, 255, 255, 0.1);
+  }
+
+  .holo-orb::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: conic-gradient(
+      from 0deg,
+      transparent 0deg,
+      rgba(255, 255, 255, 0.3) 90deg,
+      transparent 180deg,
+      rgba(0, 255, 255, 0.3) 270deg,
+      transparent 360deg
+    );
+    border-radius: inherit;
+    animation: holo-rotate 10s linear infinite;
+  }
+
+  @keyframes holo-rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Enhanced Button Styles */
+  .holo-button {
+    position: relative;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 255, 255, 0.2) 0%,
+      rgba(255, 0, 255, 0.2) 50%,
+      rgba(255, 255, 0, 0.2) 100%
+    );
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 12px 24px;
+    color: white;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    overflow: hidden;
+  }
+
+  .holo-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: left 0.5s ease;
+  }
+
+  .holo-button:hover::before {
+    left: 100%;
+  }
+
+  .holo-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3),
+      0 0 20px rgba(255, 0, 255, 0.2);
+    border-color: rgba(0, 255, 255, 0.5);
+  }
+
+  /* Particle Effects */
+  .particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+  }
+
+  .particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #00ffff;
+    border-radius: 50%;
+    animation: particle-float 6s infinite linear;
+  }
+
+  @keyframes particle-float {
+    0% {
+      transform: translateY(100vh) translateX(0);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100px) translateX(100px);
+      opacity: 0;
+    }
+  }
+
+  /* Smooth Transitions */
+  .smooth-transition {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Hover Effects */
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Glow Effects */
+  .glow-cyan {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+  }
+
+  .glow-magenta {
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+  }
+
+  .glow-yellow {
+    box-shadow: 0 0 20px rgba(255, 255, 0, 0.5);
+  }
+
+  /* Background Patterns */
+  .holo-bg {
+    background: radial-gradient(
+        circle at 20% 80%,
+        rgba(0, 255, 255, 0.1) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 80% 20%,
+        rgba(255, 0, 255, 0.1) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 40% 40%,
+        rgba(255, 255, 0, 0.05) 0%,
+        transparent 50%
+      );
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .glass-card {
+      backdrop-filter: blur(15px);
+      border-radius: 15px;
+    }
+
+    .holo-button {
+      padding: 10px 20px;
+      font-size: 14px;
+    }
+  }
+}
+
+/* Legacy styles for backward compatibility */
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .text-gradient-brand {
+    background-image: linear-gradient(
+      90deg,
+      var(--gradient-gray) 6.73%,
+      var(--gradient-orange) 28.37%,
+      var(--gradient-yellow) 49.52%,
+      var(--gradient-orange) 71.63%,
+      var(--gradient-gray) 91.83%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .bg-gradient-brand {
+    background-image: linear-gradient(
+      90deg,
+      var(--gradient-gray) 6.73%,
+      var(--gradient-orange) 28.37%,
+      var(--gradient-yellow) 49.52%,
+      var(--gradient-orange) 71.63%,
+      var(--gradient-gray) 91.83%
+    );
+  }
+
+  .rainbow-text {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(
+      to right,
+      #ff0000,
+      #ff7f00,
+      #ffff00,
+      #00ff00,
+      #0000ff,
+      #4b0082,
+      #9400d3,
+      #ff0000
+    );
+    background-size: 400% 100%;
+    animation: rainbow-shine 3s linear infinite;
+  }
+
+  @keyframes rainbow-shine {
+    0% {
+      background-position: 0% 50%;
+      opacity: 1;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      background-position: 100% 50%;
+      opacity: 0.5;
+    }
+  }
+
+  .holographic-text {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(
+      to right,
+      #ff0000,
+      #00ff00,
+      #0000ff,
+      #4b0082,
+      #9400d3,
+      #ff0000
+    );
+    background-size: 200% 100%;
+  }
+
+  .word-wrap {
+    word-break: normal;
+    overflow-wrap: break-word;
+    display: inline-block;
+    width: min-content;
+  }
+
+  .glass-card-free {
+    background: linear-gradient(
+      135deg,
+      rgba(100, 200, 255, 0.3) 0%,
+      rgba(150, 220, 255, 0.5) 100%
+    );
+  }
+
+  .glass-card-standard {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 215, 0, 0.3) 0%,
+      rgba(255, 230, 100, 0.5) 100%
+    );
+  }
+
+  .glass-card-pro {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 100, 200, 0.3) 0%,
+      rgba(255, 150, 220, 0.5) 100%
+    );
+  }
+
+  .glass-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  }
+
+  @keyframes holographic-shine {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .holographic-border {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .holographic-border::after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(
+      45deg,
+      #ff00cc,
+      #3333ff,
+      #00ccff,
+      #33ff33,
+      #ffff00,
+      #ff9933,
+      #ff00cc
+    );
+    background-size: 400% 400%;
+    z-index: -1;
+    border-radius: inherit;
+    animation: holographic-shine 8s ease infinite;
+    opacity: 0.7;
+  }
+
+  @layer util {
+    .holographic-circle {
+      position: relative;
+      background: radial-gradient(
+          circle at 30% 30%,
+          rgba(100, 255, 255, 0.2) 0%,
+          transparent 50%
+        ),
+        conic-gradient(
+          from 45deg,
+          rgba(255, 0, 255, 0.3) 0deg,
+          rgba(0, 255, 255, 0.3) 90deg,
+          rgba(0, 255, 0, 0.3) 180deg,
+          rgba(255, 0, 0, 0.3) 270deg,
+          rgba(255, 0, 255, 0.3) 360deg
+        );
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(100, 200, 255, 0.5),
+        0 0 20px rgba(255, 0, 255, 0.3), inset 0 0 15px rgba(255, 255, 255, 0.8);
+      filter: brightness(1.2);
+    }
+
+    .holographic-circle::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0.9) 0%,
+        rgba(255, 255, 255, 0) 60%,
+        rgba(255, 255, 255, 0.9) 100%
+      );
+      transform: rotate(30deg);
+      animation: holographic-shine 3s infinite linear;
+      opacity: 0.7;
+      mix-blend-mode: overlay;
+    }
+
+    .holographic-circle::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: repeating-conic-gradient(
+          from 0deg,
+          rgba(255, 255, 255, 0.1) 0deg 10deg,
+          transparent 10deg 20deg
+        ),
+        radial-gradient(
+          circle at 70% 70%,
+          rgba(255, 255, 255, 0.4) 0%,
+          transparent 30%
+        );
+      border-radius: 50%;
+      animation: holographic-rotate 20s infinite;
+      mix-blend-mode: overlay;
+    }
+
+    @keyframes holographic-shine {
+      0% {
+        transform: rotate(30deg) translate(-40%, -40%);
+      }
+      100% {
+        transform: rotate(30deg) translate(40%, 40%);
+      }
+    }
+
+    @keyframes holographic-rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes holographic-flicker {
+      0%,
+      100% {
+        opacity: 0.9;
+      }
+      20%,
+      60% {
+        opacity: 1;
+      }
+      40%,
+      80% {
+        opacity: 0.9;
+      }
+    }
+
+    .holographic-circle {
+      animation: holographic-flicker 5s infinite ease-in-out;
+    }
+  }
+
+  @layer swiper {
+    .product-swiper {
+      padding: 0 20px;
+    }
+
+    .swiper-pagination-custom .swiper-pagination-bullet {
+      width: 8px;
+      height: 8px;
+      background: #d1d5db;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .swiper-pagination-custom .swiper-pagination-bullet-active {
+      background-color: #7c3aed !important;
+      transform: scale(1.2);
+    }
+
+    .swiper-slide {
+      height: auto;
+    }
+    .product-swiper {
+      overflow: hidden;
+      touch-action: pan-y;
+    }
+  }
+
+  @layer flip-card {
+    .flip-card {
+      background-color: transparent;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transition: all 0.6s ease;
+      backface-visibility: hidden;
+    }
+
+    .flip-card-front {
+      background-color: #bbb;
+      color: black;
+      opacity: 1;
+      z-index: 2;
+    }
+
+    .flip-card-back {
+      background-color: #9400d3;
+      padding: 10px;
+      color: white;
+      opacity: 0;
+      z-index: 1;
+    }
+
+    .flip-card:hover .flip-card-front {
+      opacity: 0;
+    }
+
+    .flip-card:hover .flip-card-back {
+      opacity: 1;
+    }
+  }
+
+  @layer holograficEffect {
+    .holo-bar {
+      background: linear-gradient(
+        270deg,
+        #00ffff,
+        #ff00ff,
+        #ffff00,
+        #00ffff,
+        #ff00ff
+      );
+      background-size: 600% 600%;
+      animation: holoShift 6s ease infinite;
+      border-radius: 9999px;
+      filter: blur(0.5px);
+      opacity: 0.9;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.6),
+        0 0 20px rgba(0, 255, 255, 0.4), 0 0 30px rgba(255, 0, 255, 0.3);
+    }
+
+    @keyframes holoShift {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+  }
+
+  /* Holographic shimmer animation - vertical movement only, no horizontal flipping */
+  @keyframes shimmer {
+    0% {
+      transform: translateY(-50%) rotate(45deg) scale(1.2);
+      opacity: 0;
+      filter: blur(6px);
+    }
+    25% {
+      opacity: 0.3;
+      filter: blur(4px);
+    }
+    50% {
+      transform: translateY(0%) rotate(45deg) scale(1);
+      opacity: 0.6;
+      filter: blur(2px);
+    }
+    75% {
+      opacity: 0.3;
+      filter: blur(4px);
+    }
+    100% {
+      transform: translateY(50%) rotate(45deg) scale(1.2);
+      opacity: 0;
+      filter: blur(6px);
+    }
+  }
+
+  .animate-shimmer {
+    animation: shimmer 8s ease-in-out infinite;
+  }
+
+  /* Enhanced diagonal holographic effects - no horizontal movement */
+  @keyframes diagonal-shimmer {
+    0% {
+      background-position: 0% -100%;
+      opacity: 0;
+    }
+    20% {
+      opacity: 0.3;
+    }
+    50% {
+      background-position: 0% 0%;
+      opacity: 0.6;
+    }
+    80% {
+      opacity: 0.3;
+    }
+    100% {
+      background-position: 0% 100%;
+      opacity: 0;
+    }
+  }
+
+  .diagonal-shimmer {
+    background: linear-gradient(
+      45deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.3) 25%,
+      rgba(0, 255, 255, 0.2) 50%,
+      rgba(255, 0, 255, 0.2) 75%,
+      transparent 100%
+    );
+    background-size: 200% 200%;
+    animation: diagonal-shimmer 8s ease-in-out infinite;
+  }
+
+  /* Custom smooth pulse animation for background */
+  @keyframes smooth-pulse {
+    0%,
+    100% {
+      opacity: 0.4;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.7;
+      transform: scale(1.02);
+    }
+  }
+
+  @keyframes gradient {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    25% {
+      background-position: 25% 75%;
+    }
+    50% {
+      background-position: 50% 100%;
+    }
+    75% {
+      background-position: 75% 25%;
+    }
+  }
+
+  .animate-gradient {
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+  }
+
+  @keyframes flow {
+    0%,
+    100% {
+      transform: translateX(-100%);
+      opacity: 0.1;
+    }
+    50% {
+      transform: translateX(100%);
+      opacity: 0.2;
+    }
+  }
+
+  .animate-flow {
+    animation: flow 8s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px) scale(1);
+      opacity: 0.4;
+    }
+    50% {
+      transform: translateY(-20px) scale(1.05);
+      opacity: 0.6;
+    }
+  }
+
+  @keyframes float-delayed {
+    0%,
+    100% {
+      transform: translateY(0px) scale(1);
+      opacity: 0.4;
+    }
+    50% {
+      transform: translateY(-15px) scale(1.03);
+      opacity: 0.6;
+    }
+  }
+
+  @keyframes float-slow {
+    0%,
+    100% {
+      transform: translateY(0px) scale(1);
+      opacity: 0.4;
+    }
+    50% {
+      transform: translateY(-25px) scale(1.08);
+      opacity: 0.6;
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-float-delayed {
+    animation: float-delayed 8s ease-in-out infinite;
+  }
+
+  .animate-float-slow {
+    animation: float-slow 10s ease-in-out infinite;
+  }
+}
+
+/* Custom radial gradient utilities for smooth shimmer */
+@layer utilities {
+  .bg-gradient-radial {
+    background: radial-gradient(circle, var(--tw-gradient-stops));
+  }
+
+  .from-white\/40 {
+    --tw-gradient-from: rgba(255, 255, 255, 0.4);
+    --tw-gradient-to: rgba(255, 255, 255, 0);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  }
+
+  .via-cyan-400\/20 {
+    --tw-gradient-stops: var(--tw-gradient-from), rgba(34, 211, 238, 0.2),
+      var(--tw-gradient-to);
+  }
+
+  .to-transparent {
+    --tw-gradient-to: transparent;
+  }
+}
+
+/* Image rotation animation - subtle circular movement */
+@keyframes image-float {
+  0% {
+    transform: rotate(0deg) translateY(0px);
+  }
+  25% {
+    transform: rotate(1deg) translateY(-2px);
+  }
+  50% {
+    transform: rotate(0deg) translateY(0px);
+  }
+  75% {
+    transform: rotate(-1deg) translateY(2px);
+  }
+  100% {
+    transform: rotate(0deg) translateY(0px);
+  }
+}
+
+.animate-image-float {
+  animation: image-float 8s ease-in-out infinite;
 }

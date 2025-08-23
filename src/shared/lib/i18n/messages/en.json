@@ -1,0 +1,68 @@
+{
+  "sections": {
+    "header": {
+      "nav": {
+        "production": "Production",
+        "about": "About",
+        "reviews": "Reviews",
+        "pricing": "Price",
+        "contacts": "Contacts"
+      }
+    },
+    "hero": {
+      "title": "Holographic stickers: dazzling shine and unique style combined",
+      "description": "Premium quality, budget-friendly prices, and one-of-a-kind designs — all you need to unleash your creativity",
+      "button": "Order"
+    },
+    "pricing": {
+      "title": "Pricing Plans",
+      "description": "Choose the perfect plan for your needs. All plans come with a 14-day free trial.",
+      "price": "Price",
+      "month": "month",
+      "button": "Get started",
+      "itemFree": {
+        "title": "Free",
+        "description": "Perfect for getting started and small projects",
+        "tariff": "$0",
+        "button": "Try for free",
+        "features": {
+          "templates": "10+ templates",
+          "blocks": "Basic content blocks",
+          "analytics": "Basic analytics",
+          "scheduling": "Content scheduling",
+          "support": "Community support",
+          "forms": "Contact forms"
+        }
+      },
+      "itemStandart": {
+        "title": "Standard",
+        "description": "Best for growing businesses and professionals",
+        "tariff": "$30",
+        "button": "Get started",
+        "features": {
+          "language": "Multi-language support",
+          "taplink": "Custom Taplink",
+          "domain": "Custom domain",
+          "analytic": "Advanced analytics"
+        }
+      },
+      "itemPro": {
+        "title": "Pro",
+        "description": "For large businesses and advanced features",
+        "tariff": "$30",
+        "button": "Get started",
+        "features": {
+          "payment": "Payment integration",
+          "dynamic": "Dynamic content"
+        }
+      }
+    }
+  },
+  "pages": {
+    "404": {
+      "error": "Error",
+      "text": "The page you are looking for doesn't exist or has been moved",
+      "button": "Return to Home"
+    }
+  }
+}

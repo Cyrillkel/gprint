@@ -1,7 +1,6 @@
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -13,7 +12,7 @@ export default function BurgerMenu() {
   return (
     <Sheet>
       <SheetHeader>
-        <SheetTitle className="sr-only">Edit profile</SheetTitle>
+        <SheetTitle className="sr-only"></SheetTitle>
       </SheetHeader>
       <SheetTrigger>Open</SheetTrigger>
       <SheetContent>

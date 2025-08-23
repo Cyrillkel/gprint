@@ -5,11 +5,10 @@ import {
   NavigationMenu,
   NavigationMenuList,
   NavigationMenuItem,
-  NavigationMenuLink,
   navigationMenuTriggerStyle,
 } from "@/shared/shadcn/components/navigation-menu";
-
-import { cn } from "../utils/utils";
+import { cn } from "../lib/utils";
+import { useTranslations } from "next-intl";
 
 interface HeaderMenuProps {
   isMobile?: boolean;
@@ -20,11 +19,12 @@ export default function HeaderMenu({
   isMobile = false,
   className = "",
 }: HeaderMenuProps) {
+  const t = useTranslations();
   const links = [
-    { label: "Продукция", href: "/" },
-    { label: "О нас", href: "/about" },
-    { label: "Отзывы", href: "/reviews" },
-    { label: "Контакты", href: "/contacts" },
+    { label: t("sections.header.nav.production"), href: "/" },
+    { label: t("sections.header.nav.about"), href: "/about" },
+    { label: t("sections.header.nav.pricing"), href: "/#pricing" },
+    { label: t("sections.header.nav.contacts"), href: "/contacts" },
     { label: "+7 999-219-35-01", href: "tel:+79992193501", isPhone: true },
   ];
 

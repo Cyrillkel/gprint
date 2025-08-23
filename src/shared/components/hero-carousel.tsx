@@ -71,7 +71,7 @@ export function AutoCarousel() {
     >
       <CarouselContent className="-ml-1">
         {ImageSlides.map((slides, index) => (
-          <CarouselItem key={index} className="basis-1/3 lg:basis-1/3">
+          <CarouselItem key={index} className="basis-full">
             <div className="p-0">
               <Card>
                 <CardContent className="flex aspect-square items-center justify-center relative">
