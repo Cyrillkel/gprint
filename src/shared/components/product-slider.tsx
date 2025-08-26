@@ -43,7 +43,7 @@ export default function ProductSlider({ products }: ProductSliderProps) {
 
   return (
     <div className="relative">
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-3">
         <h2 className="text-2xl font-semibold font-heading holo-text-primary">Наша продукция</h2>
       </div>
 

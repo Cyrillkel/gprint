@@ -18,7 +18,7 @@ export const BenefitsSection = () => {
       title: "Fast Production",
       description:
         "Quick turnaround times with our advanced manufacturing processes. Get your custom holographic solutions in record time.",
-      color: "magenta",
+      color: "emerald",
       delay: 0.2,
     },
     {
@@ -167,14 +167,6 @@ export const BenefitsSection = () => {
 
                 {/* Holographic overlay effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-transparent to-magenta-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-
-                {/* Shimmer effect on hover */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 rounded-2xl"
-                  initial={{ x: "-100%" }}
-                  whileHover={{ x: "100%" }}
-                  transition={{ duration: 0.6 }}
-                />
               </div>
             </motion.div>
           ))}

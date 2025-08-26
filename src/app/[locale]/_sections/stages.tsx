@@ -53,10 +53,18 @@ export const StagesSection = () => {
       <section id="stages" className="py-12 bg-gray-50">
         <div className="container mx-auto px-4">
           <AnimatedWrapper delay={0.1} translateY={10} scale>
-            <h2 className="text-4xl md:text-5xl font-bold mb-20 relative text-center font-heading">
-              Шаги создания голограмм
-              <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-24 h-1 rounded-lg holo-bar"></div>
-            </h2>
+            <div className="text-center mb-20">
+              <h2 className="holo-text-primary text-4xl md:text-5xl font-bold mb-6 text-glow">
+                Шаги создания голограмм
+              </h2>
+              <p className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto">
+                От идеи до готового продукта - наш пошаговый процесс создания
+                голографических защитных элементов
+              </p>
+
+              {/* Decorative line */}
+              <div className="mt-8 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent mx-auto w-32 animate-pulse"></div>
+            </div>
           </AnimatedWrapper>
           <AnimatedWrapper delay={0.3} translateY={20}>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-10">

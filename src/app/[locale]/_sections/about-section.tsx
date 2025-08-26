@@ -47,7 +47,7 @@ const InfoCard: React.FC<InfoCardProps> = ({ iconSrc, title, description }) => {
           className="brightness-0 invert"
         />
       </div>
-      <h3 className="mb-2 text-lg font-semibold font-heading">{title}</h3>
+      <h3 className="mb-2 text-lg font-semibold font-heading bg-gradient-to-br from-blue-400 to-purple-900 bg-clip-text text-transparent">{title}</h3>
       <p className="text-sm leading-relaxed text-gray-600 font-sans">{description}</p>
     </motion.div>
   )
@@ -88,7 +88,7 @@ const InfoBlock: React.FC<InfoBlockProps> = ({ imageSrc, iconSrc, title, descrip
                 className="brightness-0 invert"
               />
             </div>
-            <h3 className="mb-4 text-2xl font-bold font-heading">{title}</h3>
+            <h3 className="mb-4 text-2xl font-bold bg-gradient-to-br from-blue-400 to-purple-800 bg-clip-text text-transparent">{title}</h3>
             <p className="text-base leading-relaxed text-gray-600 font-sans">{description}</p>
           </div>
         </>
@@ -105,7 +105,7 @@ const InfoBlock: React.FC<InfoBlockProps> = ({ imageSrc, iconSrc, title, descrip
                 className="brightness-0 invert"
               />
             </div>
-            <h3 className="mb-4 text-2xl font-bold">{title}</h3>
+            <h3 className="mb-4 text-2xl font-bold bg-gradient-to-br from-blue-500 to-purple-800 bg-clip-text text-transparent">{title}</h3>
             <p className="text-base leading-relaxed text-gray-600">{description}</p>
           </div>
           <div className="relative w-full aspect-[4/3] overflow-hidden rounded-2xl">
@@ -163,7 +163,7 @@ const StatCounter: React.FC<StatProps> = ({ value, label, description }) => {
       <h3 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent mb-2 font-heading">
         {displayValue}
       </h3>
-      <p className="text-xl font-semibold mb-2 font-heading">{label}</p>
+      <p className="text-xl font-semibold mb-2 font-heading bg-gradient-to-br from-blue-500 to-purple-800 bg-clip-text text-transparent">{label}</p>
       <p className="text-sm text-gray-600 text-center max-w-xs font-sans">{description}</p>
     </motion.div>
   )
@@ -293,7 +293,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ children }) => {
         </div>
 
         {/* Info Cards */}
-        <h3 className="text-2xl font-bold text-center mb-8 relative font-heading">Оснонвные преимущества <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-24 h-1 rounded-lg holo-bar"></div>
+        <h3 className="text-2xl font-bold text-center mb-8 relative font-heading holo-text-secondary">Оснонвные преимущества <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-24 h-1 rounded-lg holo-bar"></div>
         </h3>
         <div className="overflow-x-auto scrollbar-hide lg:overflow-x-visible px-4 lg:px-0 pb-8">
           <div className="flex flex-nowrap lg:flex-wrap lg:grid lg:grid-cols-4 gap-6">

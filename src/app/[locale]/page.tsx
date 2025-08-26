@@ -6,6 +6,7 @@ import {
   StagesSection,
   BenefitsSection,
   ProductionSection,
+  ContactSection,
 } from "./_sections";
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
       <PricingSection />
       <BenefitsSection />
       <StagesSection />
+      <ContactSection />
     </main>
   );
 }

@@ -957,23 +957,31 @@ body {
 
 /* Image rotation animation - subtle circular movement */
 @keyframes image-float {
-  0% {
-    transform: rotate(0deg) translateY(0px);
-  }
-  25% {
-    transform: rotate(1deg) translateY(-2px);
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
   }
   50% {
-    transform: rotate(0deg) translateY(0px);
-  }
-  75% {
-    transform: rotate(-1deg) translateY(2px);
-  }
-  100% {
-    transform: rotate(0deg) translateY(0px);
+    transform: translateY(-10px) rotate(1deg);
   }
 }
 
 .animate-image-float {
   animation: image-float 8s ease-in-out infinite;
+}
+
+/* Fade in animation for contact form */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out forwards;
 }

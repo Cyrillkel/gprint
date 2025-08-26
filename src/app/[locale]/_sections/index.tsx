@@ -5,3 +5,4 @@ export { OurClients } from "./our-clients";
 export { PricingSection } from "./pricing";
 export { StagesSection } from "./stages";
 export { BenefitsSection } from "./benifits";
+export { ContactSection } from "./contact-section";

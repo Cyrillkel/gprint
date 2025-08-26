@@ -1,36 +1,11 @@
 "use client";
+
 import Button from "@/shared/components/button";
 import Image from "next/image";
-import React, { ReactNode, useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
-// import { motion } from "framer-motion"; // Temporarily disabled due to React 19 compatibility
 
-interface HeroSectionProps {
-  children?: ReactNode;
-}
-
-// Particle component for background effects
-const Particle = ({ delay }: { delay: number }) => (
-  <div
-    className="particle"
-    style={{
-      animationDelay: `${delay}s`,
-    }}
-  />
-);
-
-export const HeroSection: React.FC<HeroSectionProps> = ({ children }) => {
-  const t = useTranslations();
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
+export const HeroSection = () => {
+  const t = useTranslations("sections.hero");
 
   return (
     <section className="relative w-full min-h-screen overflow-hidden holo-bg">
@@ -44,20 +19,20 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ children }) => {
       <div className="holo-orb absolute bottom-40 left-20 w-20 h-20 opacity-50 animate-float-slow -z-10" />
 
       <div className="absolute inset-0 z-10 flex items-center justify-center h-full pt-8 ">
-        <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center justify-center min-h-screen gap-12">
+        <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center justify-center min-h-screen gap-12 ">
           {/* Left Content */}
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left lg:w-1/2">
             <h1 className="holo-text-primary text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-glow leading-tight relative z-10">
-              {t("sections.hero.title")}
+              {t("title")}
             </h1>
 
             <p className="text-lg md:text-xl lg:text-2xl mb-8 text-gray-300 leading-relaxed max-w-lg">
-              {t("sections.hero.description")}
+              {t("description")}
             </p>
 
             <div className="relative">
               <Button className="holo-button text-lg px-8 py-4 transform hover:scale-105 transition-all duration-300">
-                {t("sections.hero.button")}
+                {t("button")}
               </Button>
             </div>
 
@@ -110,10 +85,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ children }) => {
 
       {/* Bottom decorative line */}
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent" />
-
-      {children}
     </section>
   );
 };
-
-export default HeroSection;
