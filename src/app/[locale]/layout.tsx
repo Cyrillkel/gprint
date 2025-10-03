@@ -51,7 +51,7 @@ export default async function RootLayout({
             <BackgroundWrapper />
             <div className="relative flex min-h-screen flex-col">
               <Header />
-              <main className="pt-24 grow">{children}</main>
+              <main className="grow">{children}</main>
               <Footer />
             </div>
             <ReactQueryDevtools initialIsOpen={false} />
