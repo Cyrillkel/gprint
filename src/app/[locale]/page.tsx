@@ -13,13 +13,15 @@ export default function Home() {
   return (
     <main className="overflow-hidden">
       <HeroSection />
-      <ProductionSection />
-      <OurClients />
-      <AboutSection />
-      <PricingSection />
-      <BenefitsSection />
-      <StagesSection />
-      <ContactSection />
+      <div className="pt-24">
+        <ProductionSection />
+        <OurClients />
+        <AboutSection />
+        <PricingSection />
+        <BenefitsSection />
+        <StagesSection />
+        <ContactSection />
+      </div>
     </main>
   );
 }
