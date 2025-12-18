@@ -1,10 +1,8 @@
 import { Button } from "@/shared/shadcn/ui/button";
-import { useTranslations } from "next-intl";
 // import Image from "next/image";
 import Link from "next/link";
 
 export default function NotFound() {
-  const t = useTranslations();
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-gradient-to-b">
       <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b">
@@ -12,14 +10,14 @@ export default function NotFound() {
           <div className="flex items-center gap-x-1"></div>
           <p className="font-onest leading-none font-semibold">
             <span className="text-[110px] sm:text-[128px]">404</span>{" "}
-            <span className="text-lg">{t("pages.404.error")}</span>
+            <span className="text-lg">Ошибка</span>
           </p>
           <p className="mb-10 text-sm opacity-80 sm:text-lg">
-            {t("pages.404.text")}
+            Эта страница не существует
           </p>
           <div className="w-full sm:max-w-[300px]">
             <Button asChild className="w-full">
-              <Link href="/">{t("pages.404.button")}</Link>
+              <Link href="/">Вернуться назад</Link>
             </Button>
           </div>
         </div>

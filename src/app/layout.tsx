@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Onest } from "next/font/google";
-import "../globals.css";
+import "./globals.css";
 import { QueryClientProviderWrapper } from "@/shared/context/app-context";
-import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { notFound } from "next/navigation";
-import { routing } from "@/shared/lib/i18n/routing";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Header } from "@/features/header/header";
 import { Footer } from "@/features/footer";
@@ -29,34 +26,25 @@ function BackgroundWrapper() {
   );
 }
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
-  params,
 }: Readonly<{
   children: React.ReactNode;
-  params: Promise<{ locale: string }>;
 }>) {
-  const { locale } = await params;
-  if (!hasLocale(routing.locales, locale)) {
-    notFound();
-  }
-  
   return (
-    <html lang={locale}>
+    <html lang="ru">
       <body
         className={`${onestFont.variable} ${interFont.className} antialiased`}
       >
-        <NextIntlClientProvider>
-          <QueryClientProviderWrapper>
-            <BackgroundWrapper />
-            <div className="relative flex min-h-screen flex-col">
-              <Header />
-              <main className="grow">{children}</main>
-              <Footer />
-            </div>
-            <ReactQueryDevtools initialIsOpen={false} />
-          </QueryClientProviderWrapper>
-        </NextIntlClientProvider>
+        <QueryClientProviderWrapper>
+          <BackgroundWrapper />
+          <div className="relative flex min-h-screen flex-col">
+            <Header />
+            <main className="grow">{children}</main>
+            <Footer />
+          </div>
+          <ReactQueryDevtools initialIsOpen={false} />
+        </QueryClientProviderWrapper>
       </body>
     </html>
   );

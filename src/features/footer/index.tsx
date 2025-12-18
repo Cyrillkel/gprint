@@ -10,33 +10,6 @@ export const Footer = () => {
       {/* Background decorative elements */}
       <div className="absolute inset-0 holo-bg opacity-20" />
 
-      {/* Floating orbs */}
-      <motion.div
-        className="holo-orb absolute top-10 left-20 w-16 h-16 opacity-30"
-        animate={{
-          y: [0, -20, 0],
-          rotate: [0, 180],
-        }}
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-
-      <motion.div
-        className="holo-orb absolute top-20 right-20 w-12 h-12 opacity-20"
-        animate={{
-          y: [0, -15, 0],
-          rotate: [0, -180],
-        }}
-        transition={{
-          duration: 12,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-
       <div className="container mx-auto px-4 relative z-10">
         {/* Main footer content */}
         <div className="py-20">

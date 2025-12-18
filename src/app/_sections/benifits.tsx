@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { Shield, Zap, Clock, Palette, Star, Award } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -71,33 +72,6 @@ export const BenefitsSection = () => {
     <section className="w-full py-20 relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 holo-bg opacity-20" />
-
-      {/* Floating orbs */}
-      <motion.div
-        className="holo-orb absolute top-20 left-20 w-20 h-20 opacity-30"
-        animate={{
-          y: [0, -25, 0],
-          rotate: [0, 180],
-        }}
-        transition={{
-          duration: 12,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-
-      <motion.div
-        className="holo-orb absolute bottom-20 right-20 w-16 h-16 opacity-20"
-        animate={{
-          y: [0, -20, 0],
-          rotate: [0, -180],
-        }}
-        transition={{
-          duration: 15,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}

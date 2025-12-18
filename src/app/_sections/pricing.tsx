@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { useTranslations } from "next-intl";
 import { AnimatedSection, AnimatedWrapper } from "@/shared/ui/animations";
 import { Button } from "@/shared/shadcn/ui/button";
 import { cn } from "@/shared/lib/utils";
@@ -11,8 +10,6 @@ interface Props {
 }
 
 export const PricingSection: React.FC<Props> = ({ className }) => {
-  const t = useTranslations();
-
   return (
     <AnimatedSection
       id="pricing"
@@ -26,12 +23,12 @@ export const PricingSection: React.FC<Props> = ({ className }) => {
           <div className="">
             <AnimatedWrapper delay={0.1} translateY={10} scale>
               <h2 className="font-onest rainbow-text z-10 mb-8 word-wrap bg-clip-text pb-2 text-left text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-semibold font-heading">
-                {t("sections.pricing.title")}
+                Самые заказываемые голограммы
               </h2>
             </AnimatedWrapper>
             <AnimatedWrapper delay={0.2} translateY={20}>
               <p className="mb-12 max-w-[387px] xl:mb-0 font-sans">
-                {t("sections.pricing.description")}
+                Выберите подходящие голограммы для ваших нужд.
               </p>
             </AnimatedWrapper>
           </div>
@@ -63,17 +60,17 @@ export const PricingSection: React.FC<Props> = ({ className }) => {
                 <div className="md:flex md:items-end md:gap-4 xl:block">
                   <div className="md:w-1/2 xl:w-full">
                     <h3 className="mb-2 text-center text-3xl font-medium sm:text-left xl:mb-3 xl:sm:text-center font-heading">
-                      {t("sections.pricing.itemFree.title")}
+                      Стандартные
                     </h3>
                     <p className="line-break-anywhere sm:line-break-normal mb-7 text-center sm:text-left md:mb-6 xl:text-center font-sans">
-                      {t("sections.pricing.itemFree.description")}
+                      Идеально подходит если нужно немного голограмм и бюджетно
                     </p>
                   </div>
                   <div className="ml-auto xl:w-full">
                     <p className="mb-6 md:mb-2 xl:mb-7">
-                      {t("sections.pricing.price")}{" "}
+                      Цена{" "}
                       <span className="text-[40px] font-medium md:text-[36px] xl:text-[40px]">
-                        {t("sections.pricing.itemFree.tariff")}
+                        от 100 шт
                       </span>
                     </p>
                   </div>
@@ -83,7 +80,7 @@ export const PricingSection: React.FC<Props> = ({ className }) => {
                     <Button asChild className={cn("w-full")}>
                       <Link href="#" className="z-10 flex justify-center py-5">
                         <span className="text-sm font-semibold sm:text-lg">
-                          {t("sections.pricing.itemFree.button")}
+                          Заказать
                         </span>
                         <span className="inline-block transition-transform group-hover:translate-x-1">
                           <ArrowRight className="h-6 w-6 text-white" />
@@ -101,7 +98,7 @@ export const PricingSection: React.FC<Props> = ({ className }) => {
                         width={16}
                         height={16}
                       />
-                      <p>{t("sections.pricing.itemFree.features.templates")}</p>
+                      <p>Несколько фонов на выбор</p>
                     </div>
                     <div className="mb-4 flex items-start gap-2 text-lg">
                       <Image
@@ -110,7 +107,7 @@ export const PricingSection: React.FC<Props> = ({ className }) => {
                         width={16}
                         height={16}
                       />
-                      <p>{t("sections.pricing.itemFree.features.blocks")}</p>
+                      <p>Готовая матрица</p>
                     </div>
                     <div className="mb-4 flex items-start gap-2 text-lg">
                       <Image
@@ -119,7 +116,7 @@ export const PricingSection: React.FC<Props> = ({ className }) => {
                         width={16}
                         height={16}
                       />
-                      <p>{t("sections.pricing.itemFree.features.analytics")}</p>
+                      <p>Низкая цена</p>
                     </div>
                     <div className="mb-4 flex items-start gap-2 text-lg">
                       <Image
@@ -128,9 +125,7 @@ export const PricingSection: React.FC<Props> = ({ className }) => {
                         width={16}
                         height={16}
                       />
-                      <p>
-                        {t("sections.pricing.itemFree.features.scheduling")}
-                      </p>
+                      <p>Высокое качество</p>
                     </div>
                     <div className="mb-4 flex items-start gap-2 text-lg">
                       <Image
@@ -139,7 +134,7 @@ export const PricingSection: React.FC<Props> = ({ className }) => {
                         width={16}
                         height={16}
                       />
-                      <p>{t("sections.pricing.itemFree.features.support")}</p>
+                      <p>Бесплатная консультация</p>
                     </div>
                     <div className="mb-4 flex items-start gap-2 text-lg">
                       <Image
@@ -148,7 +143,7 @@ export const PricingSection: React.FC<Props> = ({ className }) => {
                         width={16}
                         height={16}
                       />
-                      <p>{t("sections.pricing.itemFree.features.forms")}</p>
+                      <p>Минимальное количество 100 штук</p>
                     </div>
                   </div>
                 </div>
@@ -188,17 +183,17 @@ export const PricingSection: React.FC<Props> = ({ className }) => {
                 <div className="md:flex md:items-end md:gap-4 xl:block">
                   <div className="md:w-1/2 xl:w-full">
                     <h3 className="mb-2 text-center text-3xl font-medium sm:text-left xl:mb-3 xl:sm:text-center font-heading">
-                      {t("sections.pricing.itemStandart.title")}
+                      Стандартные +
                     </h3>
                     <p className="line-break-anywhere sm:line-break-normal mb-7 text-center sm:text-left md:mb-6 xl:text-center font-sans">
-                      {t("sections.pricing.itemStandart.description")}
+                      Лучший выбор для растущего бизнеса и профессионалов
                     </p>
                   </div>
                   <div className="ml-auto xl:w-full">
                     <p className="mb-6 md:mb-8 xl:mb-7">
-                      {t("sections.pricing.price")}{" "}
+                      Цена{" "}
                       <span className="text-[40px] font-medium md:text-[36px] xl:text-[40px]">
-                        {t("sections.pricing.itemStandart.tariff")}
+                        от 500 шт
                       </span>
                     </p>
                   </div>
@@ -208,7 +203,7 @@ export const PricingSection: React.FC<Props> = ({ className }) => {
                     <Button asChild className={cn("w-full")}>
                       <Link href="#" className="z-10 flex justify-center py-5">
                         <span className="text-sm font-semibold sm:text-lg">
-                          {t("sections.pricing.button")}
+                          Заказать
                         </span>
                         <span className="inline-block transition-transform group-hover:translate-x-1">
                           <ArrowRight className="h-6 w-6 text-white" />
@@ -226,7 +221,7 @@ export const PricingSection: React.FC<Props> = ({ className }) => {
                         width={16}
                         height={16}
                       />
-                      <p>{t("sections.pricing.itemFree.features.templates")}</p>
+                      <p>Несколько фонов на выбор</p>
                     </div>
                     <div className="mb-4 flex items-start gap-2 text-lg">
                       <Image
@@ -235,7 +230,7 @@ export const PricingSection: React.FC<Props> = ({ className }) => {
                         width={16}
                         height={16}
                       />
-                      <p>{t("sections.pricing.itemFree.features.blocks")}</p>
+                      <p>Готовая матрица</p>
                     </div>
                     <div className="mb-4 flex items-start gap-2 text-lg">
                       <Image
@@ -244,7 +239,7 @@ export const PricingSection: React.FC<Props> = ({ className }) => {
                         width={16}
                         height={16}
                       />
-                      <p>{t("sections.pricing.itemFree.features.analytics")}</p>
+                      <p>Низкая цена</p>
                     </div>
                     <div className="mb-4 flex items-start gap-2 text-lg">
                       <Image
@@ -253,9 +248,7 @@ export const PricingSection: React.FC<Props> = ({ className }) => {
                         width={16}
                         height={16}
                       />
-                      <p>
-                        {t("sections.pricing.itemFree.features.scheduling")}
-                      </p>
+                      <p>Высокое качество</p>
                     </div>
                     <div className="mb-4 flex items-start gap-2 text-lg">
                       <Image
@@ -264,7 +257,7 @@ export const PricingSection: React.FC<Props> = ({ className }) => {
                         width={16}
                         height={16}
                       />
-                      <p>{t("sections.pricing.itemFree.features.support")}</p>
+                      <p>Бесплатная консультация</p>
                     </div>
                     <div className="mb-4 flex items-start gap-2 text-lg">
                       <Image
@@ -273,9 +266,7 @@ export const PricingSection: React.FC<Props> = ({ className }) => {
                         width={16}
                         height={16}
                       />
-                      <p>
-                        {t("sections.pricing.itemFree.features.minQuontity")}
-                      </p>
+                      <p>Минимальное количество 500 штук</p>
                     </div>
                     <AnimatedWrapper delay={0.6} translateX={-20}>
                       <div className="mb-4 flex items-start gap-2 text-lg">
@@ -285,9 +276,7 @@ export const PricingSection: React.FC<Props> = ({ className }) => {
                           width={16}
                           height={16}
                         />
-                        <p>
-                          {t("sections.pricing.itemStandart.features.language")}
-                        </p>
+                        <p>Лазерная гравировка</p>
                       </div>
                     </AnimatedWrapper>
                     <AnimatedWrapper delay={0.65} translateX={-20}>
@@ -298,9 +287,7 @@ export const PricingSection: React.FC<Props> = ({ className }) => {
                           width={16}
                           height={16}
                         />
-                        <p>
-                          {t("sections.pricing.itemStandart.features.taplink")}
-                        </p>
+                        <p>Печать краской</p>
                       </div>
                     </AnimatedWrapper>
                     <AnimatedWrapper delay={0.75} translateX={-20}>
@@ -311,9 +298,7 @@ export const PricingSection: React.FC<Props> = ({ className }) => {
                           width={16}
                           height={16}
                         />
-                        <p>
-                          {t("sections.pricing.itemStandart.features.analytic")}
-                        </p>
+                        <p>Высокая степень защиты</p>
                       </div>
                     </AnimatedWrapper>
                   </div>
@@ -361,17 +346,17 @@ export const PricingSection: React.FC<Props> = ({ className }) => {
                 <div className="md:flex md:items-end md:gap-4 xl:block">
                   <div className="md:w-1/2 xl:w-full">
                     <h3 className="mb-2 text-center text-3xl font-medium sm:text-left xl:mb-3 xl:sm:text-center font-heading">
-                      {t("sections.pricing.itemPro.title")}
+                      Профессиональные
                     </h3>
                     <p className="line-break-anywhere sm:line-break-normal mb-7 text-center sm:text-left md:mb-6 xl:text-center font-sans">
-                      {t("sections.pricing.itemPro.description")}
+                      Для крупного бизнеса и продвинутых функций
                     </p>
                   </div>
                   <div className="ml-auto xl:w-full">
                     <p className="mb-6 md:mb-8 xl:mb-7">
-                      {t("sections.pricing.price")}
+                      Цена
                       <span className="text-[40px] font-medium md:text-[36px] xl:text-[40px]">
-                        {t("sections.pricing.itemPro.tariff")}
+                        от 500 шт
                       </span>{" "}
                     </p>
                   </div>
@@ -381,7 +366,7 @@ export const PricingSection: React.FC<Props> = ({ className }) => {
                     <Button asChild className={cn("w-full")}>
                       <Link href="#" className="z-10 flex justify-center py-5">
                         <span className="text-sm font-semibold sm:text-lg">
-                          {t("sections.pricing.button")}
+                          Заказать
                         </span>
                         <span className="inline-block transition-transform group-hover:translate-x-1">
                           <ArrowRight className="h-6 w-6 text-white" />
@@ -399,9 +384,7 @@ export const PricingSection: React.FC<Props> = ({ className }) => {
                         width={16}
                         height={16}
                       />
-                      <p>
-                        {t("sections.pricing.itemFree.features.masterMatrix")}
-                      </p>
+                      <p>Создание матрицы</p>
                     </div>
                     <div className="mb-4 flex items-start gap-2 text-lg">
                       <Image
@@ -410,7 +393,7 @@ export const PricingSection: React.FC<Props> = ({ className }) => {
                         width={16}
                         height={16}
                       />
-                      <p>{t("sections.pricing.itemPro.background")}</p>
+                      <p>Любой фон</p>
                     </div>
                     <div className="mb-4 flex items-start gap-2 text-lg">
                       <Image
@@ -419,7 +402,7 @@ export const PricingSection: React.FC<Props> = ({ className }) => {
                         width={16}
                         height={16}
                       />
-                      <p>{t("sections.pricing.itemFree.features.analytics")}</p>
+                      <p>Низкая цена</p>
                     </div>
                     <div className="mb-4 flex items-start gap-2 text-lg">
                       <Image
@@ -428,9 +411,7 @@ export const PricingSection: React.FC<Props> = ({ className }) => {
                         width={16}
                         height={16}
                       />
-                      <p>
-                        {t("sections.pricing.itemFree.features.scheduling")}
-                      </p>
+                      <p>Высокое качество</p>
                     </div>
                     <div className="mb-4 flex items-start gap-2 text-lg">
                       <Image
@@ -439,7 +420,7 @@ export const PricingSection: React.FC<Props> = ({ className }) => {
                         width={16}
                         height={16}
                       />
-                      <p>{t("sections.pricing.itemFree.features.support")}</p>
+                      <p>Бесплатная консультация</p>
                     </div>
                     <div className="mb-4 flex items-start gap-2 text-lg">
                       <Image
@@ -448,9 +429,7 @@ export const PricingSection: React.FC<Props> = ({ className }) => {
                         width={16}
                         height={16}
                       />
-                      <p>
-                        {t("sections.pricing.itemFree.features.minQuontity")}
-                      </p>
+                      <p>Минимальное количество 500 штук</p>
                     </div>
                     <div className="mb-4 flex items-start gap-2 text-lg">
                       <Image
@@ -459,9 +438,7 @@ export const PricingSection: React.FC<Props> = ({ className }) => {
                         width={16}
                         height={16}
                       />
-                      <p>
-                        {t("sections.pricing.itemStandart.features.language")}
-                      </p>
+                      <p>Лазерная гравировка</p>
                     </div>
                     <div className="mb-4 flex items-start gap-2 text-lg">
                       <Image
@@ -470,9 +447,7 @@ export const PricingSection: React.FC<Props> = ({ className }) => {
                         width={16}
                         height={16}
                       />
-                      <p>
-                        {t("sections.pricing.itemStandart.features.taplink")}
-                      </p>
+                      <p>Печать краской</p>
                     </div>
                     <div className="mb-4 flex items-start gap-2 text-lg">
                       <Image
@@ -481,9 +456,7 @@ export const PricingSection: React.FC<Props> = ({ className }) => {
                         width={16}
                         height={16}
                       />
-                      <p>
-                        {t("sections.pricing.itemStandart.features.analytic")}
-                      </p>
+                      <p>Высокая степень защиты</p>
                     </div>
                     <AnimatedWrapper delay={0.85} translateX={20}>
                       <div className="mb-4 flex items-start gap-2 text-lg">
@@ -493,9 +466,7 @@ export const PricingSection: React.FC<Props> = ({ className }) => {
                           width={16}
                           height={16}
                         />
-                        <p>
-                          {t("sections.pricing.itemStandart.features.domain")}
-                        </p>
+                        <p>Любые эффекты</p>
                       </div>
                     </AnimatedWrapper>
 
@@ -507,7 +478,7 @@ export const PricingSection: React.FC<Props> = ({ className }) => {
                           width={16}
                           height={16}
                         />
-                        <p>{t("sections.pricing.itemPro.features.payment")}</p>
+                        <p>Скрытый текст</p>
                       </div>
                     </AnimatedWrapper>
                     <AnimatedWrapper delay={0.9} translateX={20}>
@@ -518,9 +489,7 @@ export const PricingSection: React.FC<Props> = ({ className }) => {
                           width={16}
                           height={16}
                         />
-                        <p>
-                          {t("sections.pricing.itemPro.features.numeration")}
-                        </p>
+                        <p>Нумерация</p>
                       </div>
                     </AnimatedWrapper>
                     <AnimatedWrapper delay={0.9} translateX={20}>
@@ -531,7 +500,7 @@ export const PricingSection: React.FC<Props> = ({ className }) => {
                           width={16}
                           height={16}
                         />
-                        <p>{t("sections.pricing.itemPro.features.effect")}</p>
+                        <p>3D и 2D эффекты</p>
                       </div>
                     </AnimatedWrapper>
                   </div>

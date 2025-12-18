@@ -5,7 +5,6 @@ import BurgerMenu from "@/shared/shadcn/components/burger-menu";
 import HeaderMenu from "@/shared/components/menu-nav";
 import React, { useEffect, useState } from "react";
 import Logo from "@/shared/components/logo";
-import { LanguageSelector } from "@/shared/shadcn/ui/language-selector";
 import { motion } from "framer-motion";
 
 interface props {
@@ -28,7 +27,7 @@ export const Header: React.FC<props> = ({ className }) => {
   return (
     <motion.header
       className={cn(
-        "w-full fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        "w-full fixed top-0 left-0 right-0 z-[9999] transition-all duration-300",
         scrolled ? "py-2" : "py-4",
         className
       )}
@@ -62,6 +61,7 @@ export const Header: React.FC<props> = ({ className }) => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="relative group"
+            style={{ willChange: "transform, opacity" }}
           >
             <Logo />
             {/* Holographic glow effect on hover */}
@@ -80,15 +80,6 @@ export const Header: React.FC<props> = ({ className }) => {
 
           {/* Right side controls */}
           <div className="flex items-center gap-4">
-            {/* Language Selector */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              <LanguageSelector />
-            </motion.div>
-
             {/* Mobile Menu */}
             <motion.div
               className="md:hidden"
@@ -102,9 +93,10 @@ export const Header: React.FC<props> = ({ className }) => {
         </div>
       </div>
 
-      {/* Floating decorative elements */}
+      {/* Floating decorative elements - теперь они не влияют на layout */}
       <motion.div
-        className="absolute top-1/2 left-4 w-2 h-2 bg-cyan-400 rounded-full opacity-60"
+        className="absolute top-1/2 left-4 w-2 h-2 bg-cyan-400 rounded-full opacity-60 pointer-events-none"
+        style={{ willChange: "transform, opacity" }}
         animate={{
           scale: [1, 1.5, 1],
           opacity: [0.6, 1, 0.6],
@@ -117,7 +109,8 @@ export const Header: React.FC<props> = ({ className }) => {
       />
 
       <motion.div
-        className="absolute top-1/2 right-4 w-2 h-2 bg-magenta-400 rounded-full opacity-60"
+        className="absolute top-1/2 right-4 w-2 h-2 bg-magenta-400 rounded-full opacity-60 pointer-events-none"
+        style={{ willChange: "transform, opacity" }}
         animate={{
           scale: [1, 1.5, 1],
           opacity: [0.6, 1, 0.6],

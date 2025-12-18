@@ -58,10 +58,6 @@ export const ContactSection = () => {
         {/* Background decorative elements */}
         <div className="absolute inset-0 holo-bg opacity-10" />
 
-        {/* Floating orbs */}
-        <div className="holo-orb absolute top-20 left-20 w-20 h-20 opacity-20 animate-float" />
-        <div className="holo-orb absolute bottom-20 right-20 w-16 h-16 opacity-15 animate-float-delayed" />
-
         <div className="container mx-auto px-4 relative z-10">
           {/* Section Header */}
           <AnimatedWrapper delay={0.1} translateY={10} scale>

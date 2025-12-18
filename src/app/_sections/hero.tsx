@@ -2,13 +2,10 @@
 
 import Button from "@/shared/components/button";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
 
 export const HeroSection = () => {
-  const t = useTranslations("sections.hero");
-
   return (
-    <section className="relative w-full h-screen overflow-hidden holo-bg flex items-center ">
+    <section className="relative w-full h-screen overflow-hidden holo-bg flex items-center z-0">
       {/* Background Particles */}
 
       {/* Floating Holographic Orbs - Background elements */}
@@ -22,16 +19,17 @@ export const HeroSection = () => {
         {/* Left Content */}
         <div className="flex flex-col items-center lg:items-start text-center lg:text-left lg:w-[60%]">
           <h1 className="holo-text-primary text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 lg:mb-6 text-glow leading-tight relative z-10">
-            {t("title")}
+            Голографические наклейки: блеск и оригинальность в одном продукте
           </h1>
 
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-4 sm:mb-6 lg:mb-8 text-gray-300 leading-relaxed max-w-lg">
-            {t("description")}
+            Высокое качество, доступные цены и уникальный дизайн — всё, что
+            нужно для вашего творчества.
           </p>
 
           <div className="relative">
             <Button className="holo-button text-sm sm:text-base lg:text-lg px-6 sm:px-8 py-3 sm:py-4 transform hover:scale-105 transition-all duration-300">
-              {t("button")}
+              Заказать
             </Button>
           </div>
 

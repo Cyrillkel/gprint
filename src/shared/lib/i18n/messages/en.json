@@ -7,6 +7,17 @@
         "reviews": "Reviews",
         "pricing": "Price",
         "contacts": "Contacts"
+      },
+      "products": {
+        "standard": "Standard Holograms",
+        "individual": "Individual Holograms",
+        "exclusive": "Exclusive Holograms",
+        "highRes": "High Resolution Holograms",
+        "fgt": "Holograms (FGT)",
+        "selfAdhesive": "Self-Adhesive Holograms",
+        "laminate": "Holographic Laminate",
+        "erasable": "Erasable Holograms",
+        "electronic": "Electronic Holograms EHO"
       }
     },
     "hero": {
