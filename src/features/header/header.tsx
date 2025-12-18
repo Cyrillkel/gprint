@@ -40,10 +40,13 @@ export const Header: React.FC<props> = ({ className }) => {
         className={cn(
           "absolute inset-0 transition-all duration-300",
           scrolled
-            ? "backdrop-blur-xl bg-black/20 border-b border-cyan-500/20"
+            ? "bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 border-b border-cyan-500/20"
             : "backdrop-blur-md bg-black/10"
         )}
       />
+
+      {/* Holographic overlay when scrolled */}
+      {scrolled && <div className="absolute inset-0 holo-bg opacity-100" />}
 
       {/* Holographic accent line */}
       <motion.div
