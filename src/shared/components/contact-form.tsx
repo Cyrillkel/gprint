@@ -396,12 +396,7 @@ export const ContactForm = ({ onSuccess, onError }: ContactFormProps) => {
             <p className="text-xs text-gray-400 text-center">
               Нажимая кнопку, вы соглашаетесь с обработкой персональных данных
             </p>
-            <div className="text-xs text-cyan-400 text-center">
-              <div className="flex items-center justify-center">
-                <Shield className="w-3 h-3 mr-1" />
-                Максимум 5 заявок в час • Интервал: 1 минута
-              </div>
-            </div>
+            
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@
 
 import { AnimatedSection, AnimatedWrapper } from "@/shared/ui/animations";
 import { ContactForm } from "@/shared/components/contact-form";
-import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { Mail, Phone,  Clock } from "lucide-react";
 import { useState } from "react";
 
 export const ContactSection = () => {
@@ -25,24 +25,24 @@ export const ContactSection = () => {
     {
       icon: <Phone className="w-6 h-6" />,
       title: "Телефон",
-      value: "+7 (843) 258-55-03",
+      value: "+7 (999) 219-35-01",
       description: "Горячая линия работает с 8:00 до 20:00",
       color: "from-blue-400 to-cyan-500",
     },
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email",
-      value: "info@gprint.ru",
+      value: "holotechlab@gmail.com",
       description: "Ответим в течение 2 часов",
       color: "from-purple-400 to-pink-500",
     },
-    {
-      icon: <MapPin className="w-6 h-6" />,
-      title: "Адрес",
-      value: "г. Казань, ул. Примерная, 123",
-      description: "Принимаем посетителей по записи",
-      color: "from-green-400 to-emerald-500",
-    },
+    // {
+    //   icon: <MapPin className="w-6 h-6" />,
+    //   title: "Адрес",
+    //   value: "г. Казань, ул. Примерная, 123",
+    //   description: "Принимаем посетителей по записи",
+    //   color: "from-green-400 to-emerald-500",
+    // },
     {
       icon: <Clock className="w-6 h-6" />,
       title: "Режим работы",
@@ -54,7 +54,7 @@ export const ContactSection = () => {
 
   return (
     <AnimatedSection>
-      <section id="contact" className="py-20 relative overflow-hidden">
+      <section id="contact" className="py-20 relative overflow-hidden scroll-mt-28">
         {/* Background decorative elements */}
         <div className="absolute inset-0 holo-bg opacity-10" />
 
@@ -99,9 +99,25 @@ export const ContactSection = () => {
                           <h4 className="text-lg font-semibold text-white mb-1">
                             {info.title}
                           </h4>
-                          <p className="text-cyan-300 font-medium mb-1">
-                            {info.value}
-                          </p>
+                          {info.title === "Телефон" ? (
+                            <a
+                              href="tel:+79992193501"
+                              className="text-cyan-300 font-medium mb-1 inline-block hover:text-cyan-200 transition-colors"
+                            >
+                              +7 (999) 219-35-01
+                            </a>
+                          ) : info.title === "Email" ? (
+                            <a
+                              href="mailto:holotechlab@gmail.com"
+                              className="text-cyan-300 font-medium mb-1 inline-block hover:text-cyan-200 transition-colors break-all"
+                            >
+                              holotechlab@gmail.com
+                            </a>
+                          ) : (
+                            <p className="text-cyan-300 font-medium mb-1">
+                              {info.value}
+                            </p>
+                          )}
                           <p className="text-gray-400 text-sm">
                             {info.description}
                           </p>
@@ -111,18 +127,7 @@ export const ContactSection = () => {
                   ))}
                 </div>
 
-                {/* Additional info */}
-                <div className="glass-card p-6 border border-cyan-500/20 mt-8">
-                  <h4 className="text-lg font-semibold text-white mb-3">
-                    🚀 Почему выбирают GPrint?
-                  </h4>
-                  <ul className="space-y-2 text-gray-300 text-sm">
-                    <li>• 12+ лет опыта в голографической защите</li>
-                    <li>• Собственное производство в Казани</li>
-                    <li>• Гарантия качества на все изделия</li>
-                    <li>• Индивидуальный подход к каждому клиенту</li>
-                  </ul>
-                </div>
+          
               </div>
             </AnimatedWrapper>
 

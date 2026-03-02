@@ -11,8 +11,14 @@ interface AnimatedWrapperProps {
   translateX?: number;
   scale?: boolean;
   parallax?: number;
-  fadeIn?: boolean; // новое свойство для hero анимации
+  fadeIn?: boolean;
   sectionRef?: React.RefObject<HTMLElement>;
+  /** Доля видимости для появления (0–1), больше = позже */
+  appearThreshold?: number;
+  /** Доля видимости для исчезновения (0–1), меньше = дольше видно */
+  disappearThreshold?: number;
+  /** Если true — после появления не исчезает при скролле */
+  noDisappear?: boolean;
 }
 
 export const AnimatedWrapper = ({
@@ -25,11 +31,23 @@ export const AnimatedWrapper = ({
   parallax = 1,
   fadeIn = false,
   sectionRef,
+  appearThreshold,
+  disappearThreshold,
+  noDisappear,
 }: AnimatedWrapperProps) => {
   const elementRef = useRef<HTMLDivElement>(null);
   const [isMounted, setIsMounted] = useState(false);
+  const scrollOptions =
+    appearThreshold !== undefined || disappearThreshold !== undefined || noDisappear
+      ? {
+          appearThreshold: appearThreshold ?? 0.1,
+          disappearThreshold: disappearThreshold ?? 0.05,
+          noDisappear: noDisappear ?? false,
+        }
+      : {};
   const { progress, isVisible } = useScrollProgress(
-    fadeIn ? null : sectionRef || elementRef
+    fadeIn ? null : sectionRef || elementRef,
+    scrollOptions
   );
 
   useEffect(() => {

@@ -1,11 +1,20 @@
 // hooks/useScrollProgress.ts
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+
+interface UseScrollProgressOptions {
+  appearThreshold?: number;
+  disappearThreshold?: number;
+  noDisappear?: boolean;
+}
 
 export const useScrollProgress = (
-  ref: React.RefObject<HTMLElement | null> | null
+  ref: React.RefObject<HTMLElement | null> | null,
+  options: UseScrollProgressOptions = {}
 ) => {
+  const { appearThreshold = 0.1, disappearThreshold = 0.05, noDisappear = false } = options;
   const [progress, setProgress] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const hasBeenVisibleRef = useRef(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,35 +22,32 @@ export const useScrollProgress = (
 
       const rect = ref.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
+      let visible = 0;
 
-      // Элемент полностью видим
       if (rect.top >= 0 && rect.bottom <= windowHeight) {
-        setProgress(1);
+        visible = 1;
+        hasBeenVisibleRef.current = true;
+      } else if (rect.top < 0 && rect.bottom > 0) {
+        visible = rect.bottom / rect.height;
+      } else if (rect.top < windowHeight && rect.bottom > windowHeight) {
+        visible = (windowHeight - rect.top) / rect.height;
+      }
+
+      setProgress(visible);
+
+      if (visible >= appearThreshold) {
+        hasBeenVisibleRef.current = true;
         setIsVisible(true);
-      }
-      // Элемент частично видим сверху
-      else if (rect.top < 0 && rect.bottom > 0) {
-        const visible = rect.bottom / rect.height;
-        setProgress(visible);
-        setIsVisible(visible > 0.1);
-      }
-      // Элемент частично видим снизу
-      else if (rect.top < windowHeight && rect.bottom > windowHeight) {
-        const visible = (windowHeight - rect.top) / rect.height;
-        setProgress(visible);
-        setIsVisible(visible > 0.1);
-      }
-      // Элемент не видим
-      else {
-        setProgress(0);
+      } else if (!noDisappear && visible <= disappearThreshold) {
+        hasBeenVisibleRef.current = false;
         setIsVisible(false);
+      } else if (!noDisappear) {
+        setIsVisible(hasBeenVisibleRef.current);
       }
     };
 
-    // Проверяем при монтировании
     handleScroll();
 
-    // Throttle для производительности
     let ticking = false;
     const scrollHandler = () => {
       if (!ticking) {
@@ -60,7 +66,7 @@ export const useScrollProgress = (
       window.removeEventListener("scroll", scrollHandler);
       window.removeEventListener("resize", scrollHandler);
     };
-  }, [ref]);
+  }, [ref, appearThreshold, disappearThreshold, noDisappear]);
 
   return { progress, isVisible };
 };

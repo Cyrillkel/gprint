@@ -301,11 +301,11 @@ export default function StandardHologramsPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <a
-                  href="tel:+78432585503"
+                  href="tel:+79992193501"
                   className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors"
                 >
                   <Phone className="w-4 h-4" />
-                  +7 (843) 258-55-03
+                  +7 (999) 219-35-01
                 </a>
                 <span className="hidden sm:block text-gray-600">или</span>
                 <a
@@ -330,19 +330,19 @@ export default function StandardHologramsPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               <a
-                href="tel:+78432585503"
+                href="tel:+79992193501"
                 className="flex items-center justify-center gap-2 p-4 bg-cyan-500/10 rounded-lg border border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300 text-cyan-400 hover:text-cyan-300"
               >
                 <Phone className="w-5 h-5" />
-                +7 (843) 258-55-03
+                +7 (999) 219-35-01
               </a>
 
               <a
-                href="tel:+79270466293"
+                href="tel:+79992193501"
                 className="flex items-center justify-center gap-2 p-4 bg-cyan-500/10 rounded-lg border border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300 text-cyan-400 hover:text-cyan-300"
               >
                 <Phone className="w-5 h-5" />
-                +7 (927) 046-62-93
+                +7 (999) 219-35-01
               </a>
 
               <a

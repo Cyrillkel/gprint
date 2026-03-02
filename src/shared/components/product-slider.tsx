@@ -1,8 +1,6 @@
 "use client"
 
 import Image from "next/image"
-import Link from "next/link"
-import { useParams } from "next/navigation"
 // import { Star } from "lucide-react"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation, Pagination, Autoplay } from "swiper/modules"
@@ -21,8 +19,6 @@ interface ProductSliderProps {
 }
 
 export default function ProductSlider({ products }: ProductSliderProps) {
-  const params = useParams()
-  const locale = params.locale as string
   const swiperRef = useRef<SwiperCore>(null)
 
   useEffect(() => {
@@ -42,23 +38,26 @@ export default function ProductSlider({ products }: ProductSliderProps) {
 
 
   return (
-    <div className="relative">
+    <div className="relative w-full min-w-0 overflow-hidden">
       <div className="flex items-center justify-between mb-3">
         <h2 className="text-2xl font-semibold font-heading holo-text-primary">Наша продукция</h2>
       </div>
 
+      <div className="relative">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={16}
         slidesPerView={5}
+        loop={true}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+        }}
         navigation={{
           nextEl: ".swiper-button-next-custom",
           prevEl: ".swiper-button-prev-custom",
         }}
-        pagination={{
-          el: ".swiper-pagination-custom",
-          clickable: true,
-        }}
+  
         keyboard={{
           enabled: true,
           onlyInViewport: true,
@@ -71,11 +70,6 @@ export default function ProductSlider({ products }: ProductSliderProps) {
         onSwiper={(swiper) => {
           swiperRef.current = swiper
         }}
-       
-        // autoplay={{
-        //   delay: 3000,
-        //   disableOnInteraction: false,
-        // }}
         breakpoints={{
           320: {
             slidesPerView: 1,
@@ -86,11 +80,11 @@ export default function ProductSlider({ products }: ProductSliderProps) {
             spaceBetween: 12,
           },
           768: {
-            slidesPerView: 3,
+            slidesPerView: 2,
             spaceBetween: 14,
           },
           1024: {
-            slidesPerView: 4,
+            slidesPerView: 2,
             spaceBetween: 16,
           },
           1280: {
@@ -98,11 +92,11 @@ export default function ProductSlider({ products }: ProductSliderProps) {
             spaceBetween: 16,
           },
         }}
-        className="product-swiper"
+        className="product-swiper !overflow-hidden"
       >
         {products.map((product) => (
           <SwiperSlide key={product.id}>
-            <Link href={`/${locale}/products/${product.id}`} className="block group h-full">
+            <div className="block group h-full cursor-default">
               <div className="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 group-hover:shadow-xl h-full flex flex-col">
 
                 <div className="relative aspect-square overflow-hidden flip-card">
@@ -134,22 +128,23 @@ export default function ProductSlider({ products }: ProductSliderProps) {
                   </div> */}
                 </div>
               </div>
-            </Link>
+            </div>
           </SwiperSlide>
         ))}
       </Swiper>
 
-      {/* Кастомные кнопки навигации */}
-      <div className="swiper-button-prev-custom absolute right-20 top-0 -translate-y-1/4 z-10 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center cursor-pointer hover:bg-gray-50 transition-colors -ml-5">
+      {/* Кнопки навигации - слева и справа по центру слайда */}
+      <div className="swiper-button-prev-custom absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center cursor-pointer hover:bg-gray-50 transition-colors">
         <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
         </svg>
       </div>
 
-      <div className="swiper-button-next-custom absolute right-10 top-0 -translate-y-1/4 z-10 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center cursor-pointer hover:bg-gray-50 transition-colors -mr-5">
+      <div className="swiper-button-next-custom absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center cursor-pointer hover:bg-gray-50 transition-colors">
         <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
         </svg>
+      </div>
       </div>
 
       {/* Кастомная пагинация */}

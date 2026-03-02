@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { Shield, Zap, Clock, Palette, Star, Award } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -8,49 +9,49 @@ export const BenefitsSection = () => {
   const benefits = [
     {
       icon: <Shield className="w-8 h-8" />,
-      title: "Premium Quality",
+      title: "Долговечные голограммы",
       description:
-        "Our holographic materials are crafted with cutting-edge technology, ensuring exceptional durability and stunning visual effects that last.",
+        "Производим голографические наклейки на современном оборудовании. Защитный слой устойчив к влаге, УФ и механическим воздействиям, сохраняет эффектность годами.",
       color: "cyan",
       delay: 0.1,
     },
     {
       icon: <Zap className="w-8 h-8" />,
-      title: "Fast Production",
+      title: "Быстрое изготовление",
       description:
-        "Quick turnaround times with our advanced manufacturing processes. Get your custom holographic solutions in record time.",
-      color: "emerald",
+        "Срок производства голограмм — от 10 рабочих дней. Обрабатываем заказы любой сложности: от стандартных узоров до индивидуальных решений с лазерной гравировкой.",
+      color: "rose",
       delay: 0.2,
     },
     {
       icon: <Palette className="w-8 h-8" />,
-      title: "Custom Design",
+      title: "Индивидуальный дизайн",
       description:
-        "Tailored holographic solutions designed specifically for your brand. Stand out with unique, eye-catching designs.",
+        "Разрабатываем голограммы по вашему макету. Скрытые изображения, нумерация, 3D-эффекты — создаём уникальную защиту для вашей продукции.",
       color: "yellow",
       delay: 0.3,
     },
     {
       icon: <Star className="w-8 h-8" />,
-      title: "Expert Support",
+      title: "Консультация специалистов",
       description:
-        "Dedicated team of holographic specialists ready to help you create the perfect solution for your needs.",
+        "Менеджеры подберут тип голограммы и степень защиты под специфику вашего бизнеса. Помогаем с выбором формата, тиража и варианта нанесения.",
       color: "green",
       delay: 0.4,
     },
     {
       icon: <Award className="w-8 h-8" />,
-      title: "Industry Leader",
+      title: "Опыт производителя",
       description:
-        "Over 10 years of experience in holographic manufacturing, trusted by companies worldwide for quality and innovation.",
+        "Более 9 лет на рынке голографических решений. Десятки миллионов голограмм защищают продукцию компаний по России и странам СНГ.",
       color: "blue",
       delay: 0.5,
     },
     {
       icon: <Clock className="w-8 h-8" />,
-      title: "24/7 Service",
+      title: "Поддержка клиентов",
       description:
-        "Round-the-clock customer support to ensure your holographic needs are met whenever you need them.",
+        "Отвечаем на вопросы и помогаем с заказом голограмм в рабочее время. Доставка в любую точку России — почтой или курьерскими службами.",
       color: "purple",
       delay: 0.6,
     },
@@ -60,6 +61,8 @@ export const BenefitsSection = () => {
     const colorMap = {
       cyan: "from-cyan-400 to-blue-500 border-cyan-500/20",
       magenta: "from-magenta-400 to-purple-500 border-magenta-500/20",
+      amber: "from-amber-400 to-orange-400 border-amber-500/20",
+      rose: "from-rose-400 to-pink-500 border-rose-500/20",
       yellow: "from-yellow-400 to-orange-500 border-yellow-500/20",
       green: "from-green-400 to-emerald-500 border-green-500/20",
       blue: "from-blue-400 to-indigo-500 border-blue-500/20",
@@ -69,7 +72,7 @@ export const BenefitsSection = () => {
   };
 
   return (
-    <section className="w-full py-20 relative overflow-hidden">
+    <section id="benefits" className="w-full py-20 relative overflow-hidden scroll-mt-28">
       {/* Background decorative elements */}
       <div className="absolute inset-0 holo-bg opacity-20" />
 
@@ -83,11 +86,11 @@ export const BenefitsSection = () => {
           transition={{ duration: 0.8 }}
         >
           <h2 className="holo-text-primary text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-glow">
-            Why Choose GPrint?
+            Почему выбирают GPrint?
           </h2>
           <p className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto">
-            Discover the advantages that make us the leading choice for
-            holographic solutions worldwide
+            Почему выбирают производство голограмм у нас — качество, сроки
+            и индивидуальный подход к каждому заказу
           </p>
 
           {/* Decorative line */}
@@ -156,15 +159,20 @@ export const BenefitsSection = () => {
         >
           <div className="glass-card p-8 border border-cyan-500/20 max-w-2xl mx-auto">
             <h3 className="holo-text-secondary text-2xl md:text-3xl font-bold mb-4 text-glow">
-              Ready to Experience the Difference?
+              Готовы защитить свою продукцию?
             </h3>
             <p className="text-gray-300 text-lg mb-6">
-              Join thousands of satisfied customers who trust GPrint for their
-              holographic needs.
+              Закажите голографические наклейки у производителя с многолетним
+              опытом. Рассчитаем стоимость и сроки под ваш тираж.
             </p>
-            <button className="holo-button text-lg px-8 py-4 transform hover:scale-105 transition-all duration-300">
-              Get Started Today
-            </button>
+            <Link
+              href="/#contact"
+              className="inline-block"
+            >
+              <button className="holo-button text-lg px-8 py-4 transform hover:scale-105 transition-all duration-300">
+                Заказать голограммы
+              </button>
+            </Link>
           </div>
         </motion.div>
 

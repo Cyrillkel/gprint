@@ -6,6 +6,7 @@ import HeaderMenu from "@/shared/components/menu-nav";
 import React, { useEffect, useState } from "react";
 import Logo from "@/shared/components/logo";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 interface props {
   className?: string;
@@ -57,23 +58,23 @@ export const Header: React.FC<props> = ({ className }) => {
       />
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="flex justify-between items-center">
-          {/* Logo */}
+        <div className="grid grid-cols-3 items-center gap-4">
+          {/* Logo - left */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="relative group"
+            className="relative"
             style={{ willChange: "transform, opacity" }}
           >
-            <Logo />
-            {/* Holographic glow effect on hover */}
-            <div className="absolute inset-0 bg-cyan-400/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
+            <Link href="/" aria-label="На главную" className="inline-block cursor-pointer [&_img]:max-w-32 [&_img]:max-h-12 md:[&_img]:max-w-52 md:[&_img]:max-h-none">
+              <Logo />
+            </Link>
           </motion.div>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - center */}
           <motion.div
-            className="hidden md:block"
+            className="hidden md:flex justify-center"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -81,24 +82,37 @@ export const Header: React.FC<props> = ({ className }) => {
             <HeaderMenu />
           </motion.div>
 
-          {/* Right side controls */}
-          <div className="flex items-center gap-4">
-            {/* Mobile Menu */}
-            <motion.div
-              className="md:hidden"
+          {/* Right side: Phone (desktop) */}
+          <div className="flex items-center justify-end gap-4 min-h-[44px]">
+            <motion.a
+              href="tel:+79992193501"
+              className="hidden md:flex items-center gap-2 text-cyan-400 hover:text-cyan-300 font-semibold transition-colors"
+              aria-label="Позвонить +7 (999) 219-35-01"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <BurgerMenu />
-            </motion.div>
+              +7 (999) 219-35-01
+            </motion.a>
           </div>
         </div>
       </div>
 
+      {/* Burger — справа, по центру по вертикали (вне container) */}
+      <motion.div
+        className="md:hidden absolute right-4 inset-y-0 z-20 grid items-center justify-items-end"
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6, delay: 0.4 }}
+      >
+        <div className="-translate-y-1">
+          <BurgerMenu />
+        </div>
+      </motion.div>
+
       {/* Floating decorative elements - теперь они не влияют на layout */}
       <motion.div
-        className="absolute top-1/2 left-4 w-2 h-2 bg-cyan-400 rounded-full opacity-60 pointer-events-none"
+        className="absolute top-1/2 left-4 w-2 h-2 bg-cyan-400 rounded-full opacity-60 pointer-events-none hidden md:block"
         style={{ willChange: "transform, opacity" }}
         animate={{
           scale: [1, 1.5, 1],
@@ -112,7 +126,7 @@ export const Header: React.FC<props> = ({ className }) => {
       />
 
       <motion.div
-        className="absolute top-1/2 right-4 w-2 h-2 bg-magenta-400 rounded-full opacity-60 pointer-events-none"
+        className="absolute top-1/2 right-4 w-2 h-2 bg-magenta-400 rounded-full opacity-60 pointer-events-none hidden md:block"
         style={{ willChange: "transform, opacity" }}
         animate={{
           scale: [1, 1.5, 1],

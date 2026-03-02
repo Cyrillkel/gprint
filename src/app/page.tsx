@@ -1,7 +1,6 @@
 import {
   AboutSection,
   HeroSection,
-  OurClients,
   PricingSection,
   StagesSection,
   BenefitsSection,
@@ -15,7 +14,6 @@ export default function Home() {
       <HeroSection />
       <div className="pt-24">
         <ProductionSection />
-        <OurClients />
         <AboutSection />
         <PricingSection />
         <BenefitsSection />
@@ -25,3 +23,6 @@ export default function Home() {
     </main>
   );
 }
+
+
+

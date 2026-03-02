@@ -14,29 +14,29 @@ export const PricingSection: React.FC<Props> = ({ className }) => {
     <AnimatedSection
       id="pricing"
       className={cn(
-        "relative mx-auto w-full  overflow-hidden md:pt-28 xl:overflow-visible xl:pt-0 px-4 pb-40",
+        "relative mx-auto w-full overflow-visible py-16 md:py-20 xl:py-24 xl:pt-[10rem] xl:pb-24",
         className
       )}
     >
-      <div className="container mx-auto">
-        <div className="mx-auto min-h-[600px]  flex-col pb-8  2xl:min-h-[900px]">
+      <div className="container mx-auto px-4">
+        <div className="mx-auto flex-col pb-8">
           <div className="">
             <AnimatedWrapper delay={0.1} translateY={10} scale>
-              <h2 className="font-onest rainbow-text z-10 mb-8 word-wrap bg-clip-text pb-2 text-left text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-semibold font-heading">
-                Самые заказываемые голограммы
+              <h2 className="font-onest rainbow-text z-10 mb-8  bg-clip-text pb-2 text-left text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-semibold font-heading">
+                Наши цены
               </h2>
             </AnimatedWrapper>
             <AnimatedWrapper delay={0.2} translateY={20}>
-              <p className="mb-12 max-w-[387px] xl:mb-0 font-sans">
+              <p className="mb-12 whitespace-nowrap xl:mb-0 font-sans">
                 Выберите подходящие голограммы для ваших нужд.
               </p>
             </AnimatedWrapper>
           </div>
 
-          <div className="grid grid-cols-1 place-items-center content-center gap-5 xl:grid-cols-3 xl:items-end">
+          <div className="grid grid-cols-1 place-items-center content-center gap-5 xl:grid-cols-3 xl:items-end min-w-0">
             {/* Card 1 - Free */}
             <AnimatedWrapper
-              delay={0.3}
+              delay={0.2}
               translateY={20}
               scale
               className="w-full"
@@ -70,7 +70,7 @@ export const PricingSection: React.FC<Props> = ({ className }) => {
                     <p className="mb-6 md:mb-2 xl:mb-7">
                       Цена{" "}
                       <span className="text-[40px] font-medium md:text-[36px] xl:text-[40px]">
-                        от 100 шт
+                        от 1 000 ₽
                       </span>
                     </p>
                   </div>
@@ -152,7 +152,7 @@ export const PricingSection: React.FC<Props> = ({ className }) => {
 
             {/* Card 2 - Standard (главная карточка) */}
             <AnimatedWrapper
-              delay={0.4}
+              delay={0.3}
               translateY={20}
               scale
               className="w-full xl:-mt-20"
@@ -183,7 +183,7 @@ export const PricingSection: React.FC<Props> = ({ className }) => {
                 <div className="md:flex md:items-end md:gap-4 xl:block">
                   <div className="md:w-1/2 xl:w-full">
                     <h3 className="mb-2 text-center text-3xl font-medium sm:text-left xl:mb-3 xl:sm:text-center font-heading">
-                      Стандартные +
+                      Бизнес
                     </h3>
                     <p className="line-break-anywhere sm:line-break-normal mb-7 text-center sm:text-left md:mb-6 xl:text-center font-sans">
                       Лучший выбор для растущего бизнеса и профессионалов
@@ -193,7 +193,7 @@ export const PricingSection: React.FC<Props> = ({ className }) => {
                     <p className="mb-6 md:mb-8 xl:mb-7">
                       Цена{" "}
                       <span className="text-[40px] font-medium md:text-[36px] xl:text-[40px]">
-                        от 500 шт
+                        от 20 000 ₽
                       </span>
                     </p>
                   </div>
@@ -308,15 +308,15 @@ export const PricingSection: React.FC<Props> = ({ className }) => {
 
             {/* Card 3 - Pro */}
             <AnimatedWrapper
-              delay={0.5}
+              delay={0.4}
               translateY={20}
               scale
-              className="w-full xl:-mt-80"
+              className="w-full xl:-mt-40 max-xl:mt-0 min-w-0"
             >
               <div
                 className={cn(
                   "glass-card glass-card-pro holographic-border",
-                  "flex h-auto w-full flex-col justify-between rounded-3xl p-6 sm:p-8",
+                  "flex h-auto w-full min-w-0 flex-col justify-between rounded-3xl p-6 sm:p-8",
                   "relative"
                 )}
               >
@@ -349,15 +349,15 @@ export const PricingSection: React.FC<Props> = ({ className }) => {
                       Профессиональные
                     </h3>
                     <p className="line-break-anywhere sm:line-break-normal mb-7 text-center sm:text-left md:mb-6 xl:text-center font-sans">
-                      Для крупного бизнеса и продвинутых функций
+                      Для крупного бизнеса и продвинутой защиты
                     </p>
                   </div>
                   <div className="ml-auto xl:w-full">
                     <p className="mb-6 md:mb-8 xl:mb-7">
-                      Цена
+                      Цена{" "}
                       <span className="text-[40px] font-medium md:text-[36px] xl:text-[40px]">
-                        от 500 шт
-                      </span>{" "}
+                        от 50 000 ₽
+                      </span>
                     </p>
                   </div>
                 </div>
